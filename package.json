@@ -1,0 +1,27 @@
+{
+  "name": "eos-missionboard",
+  "version": "1.0.0",
+  "description": "An unofficial mission Controlboard for Eos, a sci-fi larp in the Netherlands",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "test": "Maati test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "eos-missionboard"
+  },
+  "author": "Thijs Boerma",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/goblinbot/eos-missionboard/issues"
+  },
+  "homepage": "https://github.com/goblinbot/eos-missionboard#readme",
+  "dependencies": {
+    "body-parser": "^1.18.1",
+    "express": "^4.15.4",
+    "socket.io": "^2.0.3"
+  }
+}
