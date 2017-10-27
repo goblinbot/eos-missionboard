@@ -6,8 +6,10 @@
   "directories": {
     "doc": "docs"
   },
+  "main": "index.js",
   "scripts": {
-    "test": "Maati test"
+    "start": "node index.js",
+    "test": "MAATI ONLINE"
   },
   "repository": {
     "type": "git",
