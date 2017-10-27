@@ -3,6 +3,7 @@
 $donker : #222;
 $donker-alt : #333;
 $wit : #FFF;
+$donkerwit : #DEDEDE;
 
 $beaconblauw : #39DBCC;
 $gubatgeel : #FFCC00;
@@ -12,6 +13,9 @@ $defaultspace : 0.8rem;
 
 $fontregular : Helvetica, "Helvetica Neue", Arial, sans-serif;
 $fonttitle : Helvetica, "Helvetica Neue", Arial, sans-serif;
+$fonttime : 'digital-7', $fontregular;
+
+@import 'fonts.scss';
 
 * {
   box-sizing: border-box;
@@ -28,17 +32,34 @@ body {
   font-size: 14px;
   background-color: $donker;
   font-family: $fontregular;
-  color: #EEE;
+  color: $donkerwit;
   line-height: 1.42857143;
 }
 
 p {
   font-family: $fontregular;
+  margin: $defaultspace;
+
+  &.backdrop {
+    background: $donkerwit;
+    padding: $defaultspace;
+    color: $donker;
+  }
 }
 h1, h2, h3, h4, h5 {
   font-family: $fonttitle;
   text-transform: uppercase;
   margin: $defaultspace;
+
+  &.backdrop {
+    background: $donkerwit;
+    padding: $defaultspace;
+    color: $donker;
+  }
+}
+
+.time {
+  font-family: $fonttime;
 }
 
 img {
@@ -52,6 +73,10 @@ img {
 
 .hidden {
   display: none;
+}
+
+.text-right {
+  text-align: right;
 }
 
 
@@ -76,11 +101,14 @@ img {
     padding: 8px;
 
     width: 100vw;
-    height: 100vh;
-    overflow: hidden;
-    grid-template-rows: 8.5rem 1fr 1fr 1fr 10rem;
-    grid-template-columns: 6.5rem 1fr 1fr 1fr;
-    grid-gap: 8px 8px;
+    height: auto;
+    @media(min-width: 1000px) {
+      height: 100vh;
+      overflow: hidden;
+    }
+
+    grid-template-rows: 8.5rem 1fr 1fr 1fr auto;
+    grid-template-columns: 16.5rem 1fr 2fr 32rem;
 
     grid-template-areas:
       "top top menu menu"
@@ -91,6 +119,25 @@ img {
 
     .top {
       grid-area: top;
+      display: flex;
+
+      img.logo {
+        max-height: 8rem;
+        margin-left: $defaultspace;
+        margin-right: $defaultspace;
+      }
+
+      h1 {
+        .alt {
+          color: lighten($donker-alt, 15%);
+        }
+        .alt2 {
+          color: darken($donkerwit, 10%);
+        }
+        margin: ($defaultspace * 1.6) $defaultspace;
+        padding: $defaultspace;
+        font-size: 3rem;
+      }
     }
 
     .menu {
@@ -119,5 +166,7 @@ img {
 
 
 #clock {
-  font-family: $fonttitle;
+  font-family: $fonttime;
+  color: $orbitgreen;
+  font-size: 4.4rem;
 }
