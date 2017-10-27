@@ -79,6 +79,7 @@ img {
   width: 100%;
   height: auto;
   overflow: hidden;
+  padding: 0.8rem;
   background: #333;
 }
 
@@ -88,7 +89,7 @@ img {
   height: 100vh;
   grid-template-rows: 8.5rem 1fr 1fr 1fr auto;
   grid-template-columns: 16.5rem 22rem 1fr 32rem;
-  grid-template-areas: "top top menu menu" "side main main main" "side main main main" "side main main main" "footer footer footer footerclock";
+  grid-template-areas: "top top menu menu" "side main main main" "side main main main" "side main main main" "footerconnect footer footer footerclock";
 }
 
 @media (min-width: 1000px) {
@@ -99,9 +100,9 @@ img {
 
 @media (max-width: 769px) {
   .grid.frontend {
-    grid-template-rows: 8.5rem 8.5rem 1fr 16rem 5px auto;
+    grid-template-rows: 6rem 6rem 1fr auto auto auto auto;
     grid-template-columns: 1fr;
-    grid-template-areas: "top" "menu" "main" "side" "footer" "footerclock";
+    grid-template-areas: "top" "menu" "main" "side" "footerconnect" "footer" "footerclock";
   }
 }
 
@@ -116,8 +117,14 @@ img {
   margin-right: 0.8rem;
 }
 
+@media (max-width: 769px) {
+  .grid.frontend .top img.logo {
+    display: none;
+  }
+}
+
 .grid.frontend .top h1 {
-  margin: 1.28rem 0.8rem;
+  margin: 0.8rem;
   padding: 0.8rem;
   font-size: 3rem;
 }
@@ -128,6 +135,13 @@ img {
 
 .grid.frontend .top h1 .alt2 {
   color: #c5c5c5;
+}
+
+@media (max-width: 769px) {
+  .grid.frontend .top h1 {
+    margin: 0 0.8rem;
+    padding: 0;
+  }
 }
 
 .grid.frontend .menu {
@@ -142,12 +156,20 @@ img {
   grid-area: side;
 }
 
+.grid.frontend .side p, .grid.frontend .side h1, .grid.frontend .side h2, .grid.frontend .side h3, .grid.frontend .side h4, .grid.frontend .side h5 {
+  margin: 0.8rem 0.2rem;
+}
+
 .grid.frontend .footer {
   grid-area: footer;
 }
 
 .grid.frontend .footerclock {
   grid-area: footerclock;
+}
+
+.grid.frontend .footerconnect {
+  grid-area: footerconnect;
 }
 
 #clock {

@@ -91,6 +91,7 @@ img {
     width: 100%;
     height: auto;
     overflow: hidden;
+    padding: $defaultspace;
 
     background: $donker-alt;
   }
@@ -114,10 +115,10 @@ img {
     "side main main main"
     "side main main main"
     "side main main main"
-    "footer footer footer footerclock";
+    "footerconnect footer footer footerclock";
 
     @media(max-width: 769px) {
-      grid-template-rows: 8.5rem 8.5rem 1fr 16rem 5px auto;
+      grid-template-rows: 6rem 6rem 1fr auto auto auto auto;
       grid-template-columns: 1fr;
 
       grid-template-areas:
@@ -125,6 +126,7 @@ img {
       "menu"
       "main"
       "side"
+      "footerconnect"
       "footer"
       "footerclock";
     }
@@ -137,6 +139,10 @@ img {
         max-height: 8rem;
         margin-left: $defaultspace;
         margin-right: $defaultspace;
+
+        @media(max-width: 769px) {
+          display: none;
+        }
       }
 
       h1 {
@@ -146,9 +152,14 @@ img {
         .alt2 {
           color: darken($donkerwit, 10%);
         }
-        margin: ($defaultspace * 1.6) $defaultspace;
+        margin: $defaultspace;
         padding: $defaultspace;
         font-size: 3rem;
+
+        @media(max-width: 769px) {
+          margin: 0 $defaultspace;
+          padding: 0;
+        }
       }
     }
 
@@ -162,6 +173,10 @@ img {
 
     .side {
       grid-area: side;
+
+      p,h1,h2,h3,h4,h5 {
+        margin: 0.8rem 0.2rem;
+      }
     }
 
     .footer {
@@ -170,6 +185,10 @@ img {
 
     .footerclock {
       grid-area: footerclock;
+    }
+
+    .footerconnect {
+      grid-area: footerconnect;
     }
 
   }
