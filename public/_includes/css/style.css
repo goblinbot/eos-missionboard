@@ -1,0 +1,95 @@
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 10px;
+}
+
+body {
+  font-size: 14px;
+  background-color: #222;
+  font-family: Helvetica, "Helvetica Neue", Arial, sans-serif;
+  color: #EEE;
+  line-height: 1.42857143;
+}
+
+p {
+  font-family: Helvetica, "Helvetica Neue", Arial, sans-serif;
+}
+
+h1, h2, h3, h4, h5 {
+  font-family: Helvetica, "Helvetica Neue", Arial, sans-serif;
+  text-transform: uppercase;
+  margin: 0.8rem;
+}
+
+img {
+  height: auto;
+  max-width: 100%;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.hidden {
+  display: none;
+}
+
+.grid {
+  display: grid;
+  transition: 0.4s;
+  grid-gap: 8px 8px;
+}
+
+.grid .item {
+  width: 100%;
+  height: auto;
+  overflow: hidden;
+  background: #333;
+}
+
+.grid.frontend {
+  padding: 8px;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  grid-template-rows: 12rem 1fr 1fr 1fr 10rem;
+  grid-template-columns: 5rem 1fr 1fr 1fr;
+  grid-gap: 8px 8px;
+  grid-template-areas: "top top menu menu" "side main main main" "side main main main" "side main main main" "footer footer footer footerclock";
+}
+
+.grid.frontend .top {
+  grid-area: top;
+}
+
+.grid.frontend .menu {
+  grid-area: menu;
+}
+
+.grid.frontend .main {
+  grid-area: main;
+}
+
+.grid.frontend .side {
+  grid-area: side;
+}
+
+.grid.frontend .footer {
+  grid-area: footer;
+}
+
+.grid.frontend .footerclock {
+  grid-area: footerclock;
+}
+
+#clock {
+  font-family: Helvetica, "Helvetica Neue", Arial, sans-serif;
+}

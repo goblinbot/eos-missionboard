@@ -1,0 +1,123 @@
+
+// kleuren hier
+$donker : #222;
+$donker-alt : #333;
+$wit : #FFF;
+
+$beaconblauw : #39DBCC;
+$gubatgeel : #FFCC00;
+$orbitgreen : #4fe38b;
+
+$defaultspace : 0.8rem;
+
+$fontregular : Helvetica, "Helvetica Neue", Arial, sans-serif;
+$fonttitle : Helvetica, "Helvetica Neue", Arial, sans-serif;
+
+* {
+  box-sizing: border-box;
+}
+
+html,body {
+  margin: 0;
+  padding: 0;
+}
+html {
+  font-size: 10px;
+}
+body {
+  font-size: 14px;
+  background-color: $donker;
+  font-family: $fontregular;
+  color: #EEE;
+  line-height: 1.42857143;
+}
+
+p {
+  font-family: $fontregular;
+}
+h1, h2, h3, h4, h5 {
+  font-family: $fonttitle;
+  text-transform: uppercase;
+  margin: $defaultspace;
+}
+
+img {
+  height: auto;
+  max-width: 100%;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.hidden {
+  display: none;
+}
+
+
+
+
+.grid {
+  display: grid;
+  transition: 0.4s;
+  grid-gap: 8px 8px;
+
+  .item {
+    width: 100%;
+    height: auto;
+    overflow: hidden;
+
+    background: $donker-alt;
+  }
+
+
+  &.frontend {
+
+    padding: 8px;
+
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    grid-template-rows: 12rem 1fr 1fr 1fr 10rem;
+    grid-template-columns: 5rem 1fr 1fr 1fr;
+    grid-gap: 8px 8px;
+
+    grid-template-areas:
+      "top top menu menu"
+      "side main main main"
+      "side main main main"
+      "side main main main"
+      "footer footer footer footerclock";
+
+    .top {
+      grid-area: top;
+    }
+
+    .menu {
+      grid-area: menu;
+    }
+
+    .main {
+      grid-area: main;
+    }
+
+    .side {
+      grid-area: side;
+    }
+
+    .footer {
+      grid-area: footer;
+    }
+
+    .footerclock {
+      grid-area: footerclock;
+    }
+
+  }
+
+}
+
+
+#clock {
+  font-family: $fonttitle;
+}
