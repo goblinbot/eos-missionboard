@@ -8,7 +8,7 @@ var bodyParser = require('body-parser');
 var fs = require('fs');
 
 /* INITIALISEN VAN APP */
-var port = 5002;
+var port = process.env.PORT || 5002;
 
 app.use(express.static('public'));
 app.use(express.static('_includes'));
