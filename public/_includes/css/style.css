@@ -85,16 +85,23 @@ img {
 .grid.frontend {
   padding: 8px;
   width: 100vw;
-  height: auto;
+  height: 100vh;
   grid-template-rows: 8.5rem 1fr 1fr 1fr auto;
-  grid-template-columns: 16.5rem 1fr 2fr 32rem;
+  grid-template-columns: 16.5rem 22rem 1fr 32rem;
   grid-template-areas: "top top menu menu" "side main main main" "side main main main" "side main main main" "footer footer footer footerclock";
 }
 
 @media (min-width: 1000px) {
   .grid.frontend {
-    height: 100vh;
     overflow: hidden;
+  }
+}
+
+@media (max-width: 769px) {
+  .grid.frontend {
+    grid-template-rows: 8.5rem 8.5rem 1fr 16rem 5px auto;
+    grid-template-columns: 1fr;
+    grid-template-areas: "top" "menu" "main" "side" "footer" "footerclock";
   }
 }
 
