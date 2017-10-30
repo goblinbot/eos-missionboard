@@ -1,13 +1,18 @@
 
 // kleuren hier
-$donker : #222;
-$donker-alt : #333;
+$donker : #111;
+$donker-alt : #222;
 $wit : #FFF;
 $donkerwit : #DEDEDE;
 
-$beaconblauw : #39DBCC;
-$gubatgeel : #FFCC00;
+$beaconblauw: #39DBCC;
+$gubatgeel  : #FFCC00;
 $orbitgreen : #4fe38b;
+
+$bludim      : #0f5879;
+$blubright   : #05aded;
+
+
 
 $defaultspace : 0.8rem;
 
@@ -93,6 +98,7 @@ img {
     overflow: hidden;
     padding: $defaultspace;
 
+    border-bottom: 2px solid rgba($bludim, 0.5);
     background: $donker-alt;
   }
 
@@ -136,9 +142,9 @@ img {
       display: flex;
 
       img.logo {
-        max-height: 8rem;
-        margin-left: $defaultspace;
-        margin-right: $defaultspace;
+        height: 8rem;
+        width: 8rem;
+        margin: (-$defaultspace) $defaultspace 0 $defaultspace;
 
         @media(max-width: 769px) {
           display: none;
@@ -147,10 +153,7 @@ img {
 
       h1 {
         .alt {
-          color: lighten($donker-alt, 15%);
-        }
-        .alt2 {
-          color: darken($donkerwit, 10%);
+          color: rgba($donkerwit, 0.33);
         }
         margin: $defaultspace;
         padding: $defaultspace;
@@ -161,6 +164,8 @@ img {
           padding: 0;
         }
       }
+
+      border-bottom: 2px solid rgba($donkerwit, 0.5);
     }
 
     .menu {
@@ -169,6 +174,7 @@ img {
 
     .main {
       grid-area: main;
+      border-bottom: 0;
     }
 
     .side {
@@ -177,6 +183,7 @@ img {
       p,h1,h2,h3,h4,h5 {
         margin: 0.8rem 0.2rem;
       }
+
     }
 
     .footer {
@@ -185,6 +192,13 @@ img {
 
     .footerclock {
       grid-area: footerclock;
+      border-bottom: 2px solid rgba($gubatgeel, 0.5);
+      color: $gubatgeel;
+      transition: 0.2s;
+      &:hover {
+        color: $donker;
+        background: $gubatgeel;
+      }
     }
 
     .footerconnect {
@@ -195,9 +209,10 @@ img {
 
 }
 
-
 #clock {
   font-family: $fonttime;
-  color: $orbitgreen;
   font-size: 4.4rem;
+}
+#dd, #dow {
+  color: $blubright;
 }

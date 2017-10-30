@@ -19,7 +19,7 @@ html {
 
 body {
   font-size: 14px;
-  background-color: #222;
+  background-color: #111;
   font-family: Helvetica, "Helvetica Neue", Arial, sans-serif;
   color: #DEDEDE;
   line-height: 1.42857143;
@@ -33,7 +33,7 @@ p {
 p.backdrop {
   background: #DEDEDE;
   padding: 0.8rem;
-  color: #222;
+  color: #111;
 }
 
 h1, h2, h3, h4, h5 {
@@ -45,7 +45,7 @@ h1, h2, h3, h4, h5 {
 h1.backdrop, h2.backdrop, h3.backdrop, h4.backdrop, h5.backdrop {
   background: #DEDEDE;
   padding: 0.8rem;
-  color: #222;
+  color: #111;
 }
 
 .time {
@@ -80,7 +80,8 @@ img {
   height: auto;
   overflow: hidden;
   padding: 0.8rem;
-  background: #333;
+  border-bottom: 2px solid rgba(15, 88, 121, 0.5);
+  background: #222;
 }
 
 .grid.frontend {
@@ -109,12 +110,13 @@ img {
 .grid.frontend .top {
   grid-area: top;
   display: flex;
+  border-bottom: 2px solid rgba(222, 222, 222, 0.5);
 }
 
 .grid.frontend .top img.logo {
-  max-height: 8rem;
-  margin-left: 0.8rem;
-  margin-right: 0.8rem;
+  height: 8rem;
+  width: 8rem;
+  margin: -0.8rem 0.8rem 0 0.8rem;
 }
 
 @media (max-width: 769px) {
@@ -130,11 +132,7 @@ img {
 }
 
 .grid.frontend .top h1 .alt {
-  color: #595959;
-}
-
-.grid.frontend .top h1 .alt2 {
-  color: #c5c5c5;
+  color: rgba(222, 222, 222, 0.33);
 }
 
 @media (max-width: 769px) {
@@ -150,6 +148,7 @@ img {
 
 .grid.frontend .main {
   grid-area: main;
+  border-bottom: 0;
 }
 
 .grid.frontend .side {
@@ -166,6 +165,14 @@ img {
 
 .grid.frontend .footerclock {
   grid-area: footerclock;
+  border-bottom: 2px solid rgba(255, 204, 0, 0.5);
+  color: #FFCC00;
+  transition: 0.2s;
+}
+
+.grid.frontend .footerclock:hover {
+  color: #111;
+  background: #FFCC00;
 }
 
 .grid.frontend .footerconnect {
@@ -174,6 +181,9 @@ img {
 
 #clock {
   font-family: "digital-7", Helvetica, "Helvetica Neue", Arial, sans-serif;
-  color: #4fe38b;
   font-size: 4.4rem;
+}
+
+#dd, #dow {
+  color: #05aded;
 }

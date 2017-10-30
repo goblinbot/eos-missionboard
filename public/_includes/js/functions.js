@@ -4,22 +4,28 @@ var socket = io();
 
 
 
-/*function checkGridSupport() {
+function checkGridSupport() {
 	var result;
 
-		try {
-			result = CSS.supports("display", "grid");
-		}
-		catch(err) {
-			$('.account').html('<p style="font-size:1.7rem;font-weight:bold;" class="text-center">You are using a <u>severely outdated</u> browser. <br/>Please upgrade to a modern browser, like Firefox or Chrome.</p>');
-		}
+	if($(window).width() > 768) {
+			try {
+				result = CSS.supports("display", "grid");
+			}
+			catch(err) {
+				$('.menu.item').html('<p style="font-size:1.7rem;font-weight:bold;" class="text-center">You are using a <u>severely outdated</u> browser. <br/>Please upgrade to a modern browser, like Firefox or Chrome.</p>');
+			}
 
-	if(result == false) {
-		$('.account').html('<p style="font-size:1.7rem;font-weight:bold;" class="text-center">Your current browser does not support CSS grids. Please upgrade to a modern browser (i.e. Chrome/Firefox).</p>');
+		if(result == false) {
+			$('.menu.item').html('<p style="font-size:1.7rem;font-weight:bold;opacity:0.8;" class="text-center">Your current browser does not support CSS grids. Please upgrade to a modern browser (i.e. Chrome/Firefox).</p>');
+		} else {
+			console.log('checkGridSupport => Thank you for using a real browser!');
+		}
 	} else {
-		console.log('[[[ Grid support detected : Thank you for using a real browser! ]]]');
+		console.log('checkGridSupport => Mobile resolution detected.');
 	}
-}*/
+
+
+}
 
 
 
@@ -67,5 +73,8 @@ function updateClock() {
 }
 $(document).ready(function() {
   updateClock();
+	checkGridSupport()
+
+
   setInterval('updateClock()', 1000);
 });
