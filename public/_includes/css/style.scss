@@ -170,7 +170,7 @@ img {
 
     .menu {
       grid-area: menu;
-      border-bottom: 2px solid rgba($bludim, 0);
+      border-bottom: 2px solid rgba($bludim, 0.5);
       display: flex;
       flex-direction: row;
       justify-content: flex-end;
@@ -181,7 +181,7 @@ img {
         border-left: 1px solid $donker-alt;
         transition: 0.4s;
         text-align: center;
-        border-bottom: 2px solid rgba($bludim, 0.5);
+        border-bottom: 2px solid rgba($bludim, 0);
 
         height: 8.4rem;
         margin: -0.8rem 0;
