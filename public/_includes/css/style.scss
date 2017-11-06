@@ -170,6 +170,26 @@ img {
 
     .menu {
       grid-area: menu;
+      border-bottom: 2px solid rgba($bludim, 0);
+      display: flex;
+      flex-direction: row;
+      text-align: right;
+
+      .menu-block {
+        display: inline-block;
+        width: auto;
+        border-left: 1px solid $donker-alt;
+        transition: 0.4s;
+        text-align: center;
+        height: 100%;
+        border-bottom: 2px solid rgba($bludim, 0.5);
+
+        &:hover {
+          color: $donker;
+          background-color: $bludim;
+          border-bottom: 2px solid $bludim;
+        }
+      }
     }
 
     .main {

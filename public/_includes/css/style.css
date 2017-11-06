@@ -144,6 +144,26 @@ img {
 
 .grid.frontend .menu {
   grid-area: menu;
+  border-bottom: 2px solid rgba(15, 88, 121, 0);
+  display: flex;
+  flex-direction: row;
+  text-align: right;
+}
+
+.grid.frontend .menu .menu-block {
+  display: inline-block;
+  width: auto;
+  border-left: 1px solid #222;
+  transition: 0.4s;
+  text-align: center;
+  height: 100%;
+  border-bottom: 2px solid rgba(15, 88, 121, 0.5);
+}
+
+.grid.frontend .menu .menu-block:hover {
+  color: #111;
+  background-color: #0f5879;
+  border-bottom: 2px solid #0f5879;
 }
 
 .grid.frontend .main {
