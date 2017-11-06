@@ -181,8 +181,15 @@ img {
         border-left: 1px solid $donker-alt;
         transition: 0.4s;
         text-align: center;
-        height: 100%;
         border-bottom: 2px solid rgba($bludim, 0.5);
+
+        height: 8.5rem;
+        margin: -0.8rem 0;
+        overflow: hidden;
+
+        @media(max-width: 769px) {
+          height: 6rem;
+        }
 
         &:hover {
           color: $donker;
