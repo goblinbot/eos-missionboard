@@ -189,9 +189,15 @@ img {
         padding-left: 1.4rem;
         padding-right: 1.4rem;
 
+        font-size: 24px;
+        color: $wit;
+        text-decoration: none;
+
         @media(max-width: 769px) {
           height: 6rem;
         }
+
+
 
         &:hover {
           color: $donker;
