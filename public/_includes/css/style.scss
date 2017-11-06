@@ -173,7 +173,7 @@ img {
       border-bottom: 2px solid rgba($bludim, 0);
       display: flex;
       flex-direction: row;
-      text-align: right;
+      justify-content: flex-end;
 
       .menu-block {
         display: inline-block;
@@ -183,9 +183,11 @@ img {
         text-align: center;
         border-bottom: 2px solid rgba($bludim, 0.5);
 
-        height: 8.5rem;
+        height: 8.4rem;
         margin: -0.8rem 0;
         overflow: hidden;
+        padding-left: 1.4rem;
+        padding-right: 1.4rem;
 
         @media(max-width: 769px) {
           height: 6rem;
