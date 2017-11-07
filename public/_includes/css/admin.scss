@@ -104,18 +104,19 @@ $blubright   : #05aded;
     border-bottom: 0;
   }
 
-  padding: 8px;
+  padding     : 8px;
 
-  width: 100vw;
-  height: 100vh;
+  width       : 100vw;
+  min-height  : 100vh;
+  height      : auto;
 
-  grid-template-columns: 1fr 750px 1fr;
+  grid-template-columns : 1fr 750px 1fr;
 
-  grid-template-rows: 7rem 6rem 6rem 1fr;
+  grid-template-rows    : 7rem 6rem 6rem 1fr;
 
   @media (min-width: 992px) {
     grid-template-columns: 1fr 970px 1fr;
-    // overflow: hidden;
+    overflow: hidden;
   }
   @media (min-width: 1200px) {
     grid-template-columns: 1fr 1170px 1fr;

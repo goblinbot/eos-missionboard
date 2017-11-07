@@ -86,7 +86,8 @@
 .grid.backend {
   padding: 8px;
   width: 100vw;
-  height: 100vh;
+  min-height: 100vh;
+  height: auto;
   grid-template-columns: 1fr 750px 1fr;
   grid-template-rows: 7rem 6rem 6rem 1fr;
   grid-template-areas: "titlebar titlebar titlebar" "blockleft container blankright" "blockleft container blankright" "blockleft container blankright";
@@ -99,6 +100,7 @@
 @media (min-width: 992px) {
   .grid.backend {
     grid-template-columns: 1fr 970px 1fr;
+    overflow: hidden;
   }
 }
 
