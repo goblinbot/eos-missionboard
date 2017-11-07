@@ -52,10 +52,12 @@
 
 .grid.backend .blankleft {
   grid-area: blankleft;
+  background: none;
 }
 
 .grid.backend .blankright {
   grid-area: blankright;
+  background: none;
 }
 
 .grid.backend .container {

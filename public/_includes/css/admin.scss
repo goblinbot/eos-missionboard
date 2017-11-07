@@ -91,10 +91,12 @@ $blubright   : #05aded;
 
   .blankleft {
     grid-area: blankleft;
+    background: none;
   }
 
   .blankright {
     grid-area: blankright;
+    background: none;
   }
 
   .container {
