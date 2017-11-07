@@ -162,14 +162,18 @@ img {
   overflow: hidden;
   padding-left: 1.4rem;
   padding-right: 1.4rem;
-  font-size: 24px;
-  color: #FFF;
+  padding-top: 8px;
+  font-size: 20px;
+  color: #DEDEDE;
   text-decoration: none;
+  font-weight: bold;
 }
 
 @media (max-width: 769px) {
   .grid.frontend .menu .menu-block {
     height: 6rem;
+    font-size: 18px;
+    padding-top: 4px;
   }
 }
 

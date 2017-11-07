@@ -1,0 +1,101 @@
+
+// kleuren hier
+$donker : #111;
+$donker-alt : #222;
+$wit : #FFF;
+$donkerwit : #DEDEDE;
+
+$beaconblauw: #39DBCC;
+$gubatgeel  : #FFCC00;
+$orbitgreen : #4fe38b;
+
+$bludim      : #0f5879;
+$blubright   : #05aded;
+
+#admkeypad {
+  .error {
+    margin-bottom: (0.8rem * 4);
+  }
+}
+
+.keypad-row {
+  .btn.btn-keypad {
+    padding-top:28px;
+    padding-bottom:28px;
+    font-size: 2rem;
+    border-radius: 0;
+  }
+  #writekeys {
+    background      : #CCC;
+    color           : #222;
+    font-size       : 32px;
+    font-size       : 2rem;
+    padding         : 4px;
+    max-width       : 100%;
+    border-radius   : 5px;
+    margin-bottom   : 2rem;
+  }
+}
+
+.grid.backend {
+
+  .item {
+    border-bottom: 0;
+  }
+
+  padding: 8px;
+
+  width: 100vw;
+  height: 100vh;
+
+  grid-template-columns: 1fr 750px 1fr;
+  grid-template-rows: 30px 80px 1fr;
+
+  @media (min-width: 992px) {
+    grid-template-columns: 1fr 970px 1fr;
+    overflow: hidden;
+  }
+  @media (min-width: 1200px) {
+    grid-template-columns: 1fr 1170px 1fr;
+  }
+
+  grid-template-areas:
+    "topbar topbar topbar"
+    "titlebar titlebar titlebar"
+    "blankleft container blankright";
+
+  .topbar {
+    grid-area: topbar;
+    border-bottom: 2px solid rgba($gubatgeel, 0.33);
+  }
+
+  .titlebar {
+    grid-area: titlebar;
+  }
+
+  .blankleft {
+    grid-area: blankleft;
+  }
+
+  .blankright {
+    grid-area: blankright;
+  }
+
+  .container {
+    grid-area: container;
+  }
+
+  @media(max-width: 769px) {
+    grid-template-rows: 30px 80px 1fr 1px 1px;
+    grid-template-columns: 1fr;
+
+    grid-template-areas:
+      "topbar"
+      "titlebar"
+      "container"
+      "blankright"
+      "blankleft";
+  }
+
+
+}

@@ -61,4 +61,21 @@
 <script type="text/javascript" src="/socket.io/socket.io.js"></script>
 <script src="missionObj.js" charset="utf-8"></script>
 <script type="text/javascript" src="/_includes/js/functions.js"></script>
+
+<script>
+
+socket.on('init_frontendBoard', function(missions){
+
+  if(missions.length > 0) {
+    console.log('<> Operations detected. Initialising phase one.');
+  } else {
+    console.log('<> No operations active.');
+  }
+
+
+  console.log(missions);
+});
+
+
+</script>
 </html>

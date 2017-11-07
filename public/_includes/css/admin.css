@@ -1,0 +1,76 @@
+#admkeypad .error {
+  margin-bottom: 3.2rem;
+}
+
+.keypad-row .btn.btn-keypad {
+  padding-top: 28px;
+  padding-bottom: 28px;
+  font-size: 2rem;
+  border-radius: 0;
+}
+
+.keypad-row #writekeys {
+  background: #CCC;
+  color: #222;
+  font-size: 32px;
+  font-size: 2rem;
+  padding: 4px;
+  max-width: 100%;
+  border-radius: 5px;
+  margin-bottom: 2rem;
+}
+
+.grid.backend {
+  padding: 8px;
+  width: 100vw;
+  height: 100vh;
+  grid-template-columns: 1fr 750px 1fr;
+  grid-template-rows: 30px 80px 1fr;
+  grid-template-areas: "topbar topbar topbar" "titlebar titlebar titlebar" "blankleft container blankright";
+}
+
+.grid.backend .item {
+  border-bottom: 0;
+}
+
+@media (min-width: 992px) {
+  .grid.backend {
+    grid-template-columns: 1fr 970px 1fr;
+    overflow: hidden;
+  }
+}
+
+@media (min-width: 1200px) {
+  .grid.backend {
+    grid-template-columns: 1fr 1170px 1fr;
+  }
+}
+
+.grid.backend .topbar {
+  grid-area: topbar;
+  border-bottom: 2px solid rgba(255, 204, 0, 0.33);
+}
+
+.grid.backend .titlebar {
+  grid-area: titlebar;
+}
+
+.grid.backend .blankleft {
+  grid-area: blankleft;
+}
+
+.grid.backend .blankright {
+  grid-area: blankright;
+}
+
+.grid.backend .container {
+  grid-area: container;
+}
+
+@media (max-width: 769px) {
+  .grid.backend {
+    grid-template-rows: 30px 80px 1fr 1px 1px;
+    grid-template-columns: 1fr;
+    grid-template-areas: "topbar" "titlebar" "container" "blankright" "blankleft";
+  }
+}

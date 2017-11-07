@@ -5,13 +5,66 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <link rel="stylesheet" type="text/css" href="/_includes/css/style.css" />
-  <title>Missionboard ADMIN</title>
+  <link rel="stylesheet" type="text/css" href="/_includes/css/admin.css" />
+  <title>STRATI.OS ADMIN</title>
 </head>
 <body>
 
+  <!-- dit is MAIN : hier laden we de subpaginas in. -->
+  <div id="main" class="grid backend">
+
+    <div class="item topbar">
+      AAAA
+    </div>
+
+    <div class="titlebar item">
+      <h1>STRATI.OS //mission control</h1>
+    </div>
+
+    <div class="blankleft item">&nbsp;</div>
+    <div class="blankright item">&nbsp;</div>
+
+
+    <div id="admkeypad" class="container noselect item">
+
+      <div class="keypad-row">
+        <form id="keypad_login">
+          <textarea id="writekeys" name="submitKeycode" rows="1" cols="6" readonly="readonly" class="noselect text-center form-control"></textarea>
+        </form>
+      </div>
+
+      <div class="keypad-row">
+        <div class="btn btn-keypad">1</div>
+        <div class="btn btn-keypad">2</div>
+        <div class="btn btn-keypad">3</div>
+      </div>
+
+      <div class="keypad-row">
+        <div class="btn btn-keypad">4</div>
+        <div class="btn btn-keypad">5</div>
+        <div class="btn btn-keypad">6</div>
+      </div>
+
+      <div class="keypad-row">
+        <div class="btn btn-keypad">7</div>
+        <div class="btn btn-keypad">8</div>
+        <div class="btn btn-keypad">9</div>
+      </div>
+
+      <div class="keypad-row">
+        <div class="btn btn-keypad delete"><i class="fa fa-refresh"></i></div>
+        <div class="btn btn-keypad">0</div>
+        <div class="btn btn-keypad submit"><i class="fa fa-check"></i></div>
+      </div>
+
+    </div>
+
+  </div>
 
 </body>
 <script src="/_includes/js/jquery.min.js" charset="utf-8"></script>
-<script src="missionObj.js" charset="utf-8"></script>
+<script type="text/javascript" src="/socket.io/socket.io.js"></script>
+<script src="../missionObj.js" charset="utf-8"></script>
 <script type="text/javascript" src="/_includes/js/functions.js"></script>
+<script type="text/javascript" src="/_includes/js/functions.admin.js"></script>
 </html>

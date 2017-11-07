@@ -186,15 +186,20 @@ img {
         height: 8.4rem;
         margin: -0.8rem 0;
         overflow: hidden;
+
         padding-left: 1.4rem;
         padding-right: 1.4rem;
+        padding-top: 8px;
 
-        font-size: 24px;
-        color: $wit;
+        font-size: 20px;
+        color: $donkerwit;
         text-decoration: none;
+        font-weight: bold;
 
         @media(max-width: 769px) {
           height: 6rem;
+          font-size: 18px;
+          padding-top: 4px;
         }
 
 
