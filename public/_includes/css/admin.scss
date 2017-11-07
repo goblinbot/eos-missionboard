@@ -153,12 +153,12 @@ $blubright   : #05aded;
 
   .blankleft {
     grid-area: blankleft;
-    background: rgba($bludim, 0.1);
+    background: rgba($bludim, 0.25);
   }
 
   .blankright {
     grid-area: blankright;
-    background: rgba($bludim, 0.1);
+    background: rgba($bludim, 0.25);
   }
 
   .container {

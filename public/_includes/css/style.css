@@ -25,6 +25,12 @@ body {
   line-height: 1.42857143;
 }
 
+@media (min-width: 769px) {
+  body {
+    background-image: url("/img/citadel.jpg");
+  }
+}
+
 p {
   font-family: Helvetica, "Helvetica Neue", Arial, sans-serif;
   margin: 0.8rem;

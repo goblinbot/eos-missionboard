@@ -36,6 +36,10 @@ html {
 body {
   font-size: 14px;
   background-color: $donker;
+  @media(min-width:769px){
+    background-image: url('/img/citadel.jpg');    
+  }
+
   font-family: $fontregular;
   color: $donkerwit;
   line-height: 1.42857143;

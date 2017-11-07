@@ -115,12 +115,12 @@
 
 .grid.backend .blankleft {
   grid-area: blankleft;
-  background: rgba(15, 88, 121, 0.1);
+  background: rgba(15, 88, 121, 0.25);
 }
 
 .grid.backend .blankright {
   grid-area: blankright;
-  background: rgba(15, 88, 121, 0.1);
+  background: rgba(15, 88, 121, 0.25);
 }
 
 .grid.backend .container {
