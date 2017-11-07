@@ -48,6 +48,7 @@ $blubright   : #05aded;
 
       &:hover {
         background: $blubright;
+        border-color: $blubright;
         color: $donker;
       }
 
@@ -55,12 +56,14 @@ $blubright   : #05aded;
       border-bottom: 2px solid $gubatgeel;
       &:hover {
         background: $gubatgeel;
+        border-color: $gubatgeel;
       }
     }
     &.submit {
       border-bottom: 2px solid $orbitgreen;
       &:hover {
         background: $orbitgreen;
+        border-color: $orbitgreen;
       }
     }
   }
