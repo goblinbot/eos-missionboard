@@ -81,7 +81,6 @@
   padding: 1rem;
   max-width: 100%;
   border-radius: 5px;
-  overflow: hidden;
 }
 
 .grid.backend {
@@ -100,7 +99,6 @@
 @media (min-width: 992px) {
   .grid.backend {
     grid-template-columns: 1fr 970px 1fr;
-    overflow: hidden;
   }
 }
 
@@ -132,7 +130,7 @@
 
 @media (max-width: 769px) {
   .grid.backend {
-    grid-template-rows: 8rem 1fr 1px 1px;
+    grid-template-rows: auto 1fr 1px 1px;
     grid-template-columns: 1fr;
     grid-template-areas: "titlebar" "container" "blankright" "blankleft";
   }

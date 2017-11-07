@@ -92,7 +92,7 @@ $blubright   : #05aded;
       padding         : 1rem;
       max-width       : 100%;
       border-radius   : 5px;
-      overflow: hidden;
+      // overflow: hidden;
     }
   }
 
@@ -115,7 +115,7 @@ $blubright   : #05aded;
 
   @media (min-width: 992px) {
     grid-template-columns: 1fr 970px 1fr;
-    overflow: hidden;
+    // overflow: hidden;
   }
   @media (min-width: 1200px) {
     grid-template-columns: 1fr 1170px 1fr;
@@ -167,7 +167,7 @@ $blubright   : #05aded;
   }
 
   @media(max-width: 769px) {
-    grid-template-rows: 8rem 1fr 1px 1px;
+    grid-template-rows: auto 1fr 1px 1px;
     grid-template-columns: 1fr;
 
     grid-template-areas:
