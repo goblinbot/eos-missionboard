@@ -1,6 +1,6 @@
 .keypad-row {
   text-align: center;
-  padding: 1.5rem;
+  padding: 0.2rem 1.5rem;
   width: 100%;
   display: flex;
   flex-direction: row;
@@ -11,7 +11,7 @@
   text-align: center;
   padding-top: 3rem;
   padding-bottom: 3rem;
-  margin: 1.5rem;
+  margin: 1.1rem;
   font-size: 2.5rem;
   font-weight: bold;
   font-family: 'digital-7', Helvetica, "Helvetica Neue", Arial, sans-serif;
@@ -24,7 +24,7 @@
 
 @media (max-width: 769px) {
   .keypad-row .btn.btn-keypad {
-    margin: 3px;
+    margin: 8px;
     font-size: 2.1rem;
   }
 }
