@@ -37,33 +37,49 @@
     <div id="admkeypad" class="container noselect item">
 
       <div class="keypad-row">
+        <div class="space">&nbsp;</div>
+        <div id="cPanel-status"><h1>Login</h1></div>
+        <div class="space">&nbsp;</div>
+      </div>
+
+      <div class="keypad-row">
+        <div class="space">&nbsp;</div>
         <form id="keypad_login">
           <textarea id="writekeys" name="submitKeycode" rows="1" cols="6" readonly="readonly" class="noselect text-center form-control"></textarea>
         </form>
+        <div class="space">&nbsp;</div>
       </div>
 
       <div class="keypad-row">
+        <div class="space">&nbsp;</div>
         <div class="btn btn-keypad">1</div>
         <div class="btn btn-keypad">2</div>
         <div class="btn btn-keypad">3</div>
+        <div class="space">&nbsp;</div>
       </div>
 
       <div class="keypad-row">
+        <div class="space">&nbsp;</div>
         <div class="btn btn-keypad">4</div>
         <div class="btn btn-keypad">5</div>
         <div class="btn btn-keypad">6</div>
+        <div class="space">&nbsp;</div>
       </div>
 
       <div class="keypad-row">
+        <div class="space">&nbsp;</div>
         <div class="btn btn-keypad">7</div>
         <div class="btn btn-keypad">8</div>
         <div class="btn btn-keypad">9</div>
+        <div class="space">&nbsp;</div>
       </div>
 
       <div class="keypad-row">
+        <div class="space">&nbsp;</div>
         <div class="btn btn-keypad delete"><i class="fa fa-refresh"></i></div>
         <div class="btn btn-keypad">0</div>
         <div class="btn btn-keypad submit"><i class="fa fa-check"></i></div>
+        <div class="space">&nbsp;</div>
       </div>
 
     </div>
@@ -76,4 +92,91 @@
 <script src="../missionObj.js" charset="utf-8"></script>
 <script type="text/javascript" src="/_includes/js/functions.js"></script>
 <script type="text/javascript" src="/_includes/js/functions.admin.js"></script>
+
+
+
+<script>
+/*KEYPAD*/
+var KeysPressed = 0;
+var attempts    = 0;
+
+  $('#admkeypad .btn-keypad').click(function(){
+
+    var $write = $('#writekeys');
+
+    var $this = $(this), character = $this.text();
+
+    if($this.hasClass('delete')) {
+        var html = $write.html();
+
+        $write.html(html.substr(0, html.length - 5));
+        $('#cPanel-status').html("<h1>Clear.</h1>");
+        KeysPressed = 0;
+        return false;
+    }
+    if($this.hasClass('submit')) {
+        if (KeysPressed < 5) {
+           $('#cPanel-status').html("<h1>Insufficient amount of characters.</h1>");
+        } else if (KeysPressed == 5) {
+          $('#keypad_login').submit();
+        } else {
+            $('#cPanel-status').html("<h1>Something went horribly wrong.</h1>");
+        }
+
+    } else {
+      if (KeysPressed < 5) {
+          /* voeg tekens toe aan blok */
+          $write.html($write.html() + character);
+          KeysPressed++;
+      } else if (KeysPressed >= 5) {
+          $('#cPanel-status').html("<h1>Max characters reached.</h1>");
+      } else {
+          $('#cPanel-status').html("<h1>Something went horribly wrong.</h1>");
+      }
+    }
+  });
+
+  $("#keypad_login").submit(function(e) {
+      e.preventDefault();
+      var keycode = $('#writekeys').html();
+      console.log(keycode);
+
+      socket.emit('auth', keycode);
+  });
+
+  socket.on('authFalse', function(){
+    attempts++;
+    $('#cPanel-status').html("<h1>Incorrect pin entered. Strike "+attempts+".</h1>");
+
+    if(attempts > 3) {
+      location.reload();
+    }
+  });
+
+  socket.on('authTrue', function(keycode,loginrank){
+    attempts = 0;
+    setCookie('auth','TRUE','1');
+    setCookie('usercode',keycode,'1');
+    setCookie('rank',loginrank,'1');
+
+    $('#admkeypad').empty();
+    $('#admkeypad').remove();
+      $('#main').append('<div id="admin-panel" class="container item"></div>');
+      $('#admin-panel').load('/admin/adminpanel.html');
+
+  });
+
+  $(document).ready(function() {
+    var admAUTH = getCookie('auth');
+    var admUSER = getCookie('usercode');
+
+    if(admAUTH == 'TRUE') {
+      $('#admkeypad').empty();
+      $('#admkeypad').remove();
+        $('#main').append('<div id="admin-panel" class="container item"></div>');
+        $('#admin-panel').load('/admin/adminpanel.html');
+    }
+  });
+</script>
+
 </html>

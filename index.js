@@ -59,7 +59,7 @@ io.on('connection', function (socket) {
 
       if(valid_accounts[i].logincode == keycode) {
         checklogincode = 1;
-        /*loginrank = valid_accounts[i].loginrank;*/
+        loginrank = valid_accounts[i].loginrank;
       }
     }
 
@@ -81,14 +81,6 @@ function accountObj(logincode,loginrank) {
 }
 var valid_accounts = [];
 
-/*
-add entries here to make accounts, bound to a five-digit code.
-For example:
-  valid_accounts[5] = (new accountObj('99999','1'));
-the second digit, which is '1' in our example, determines the user 'rank'. The higher, the better, going from 1 to 4.
-a full admin/gamemaster would be:
-  valid_accounts[0] = (new accountObj('00451','4'));
-*/
 valid_accounts[0] = (new accountObj('61021','4'));
 valid_accounts[2] = (new accountObj('45100','3'));
 valid_accounts[3] = (new accountObj('67790','1'));
