@@ -24,6 +24,12 @@
   cursor: pointer;
 }
 
+@media (max-width: 769px) {
+  .keypad-row .btn.btn-keypad {
+    margin: 3px;
+  }
+}
+
 .keypad-row .btn.btn-keypad:hover {
   background: #05aded;
   color: #111;
