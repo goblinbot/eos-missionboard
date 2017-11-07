@@ -25,8 +25,8 @@
   width: 100vw;
   height: 100vh;
   grid-template-columns: 1fr 750px 1fr;
-  grid-template-rows: 30px 80px 1fr;
-  grid-template-areas: "topbar topbar topbar" "titlebar titlebar titlebar" "blankleft container blankright";
+  grid-template-rows: 7rem 6rem 6rem 1fr;
+  grid-template-areas: "titlebar titlebar titlebar" "blankleft container blankright" "blankleft container blankright" "blankleft container blankright";
 }
 
 .grid.backend .item {
@@ -44,11 +44,6 @@
   .grid.backend {
     grid-template-columns: 1fr 1170px 1fr;
   }
-}
-
-.grid.backend .topbar {
-  grid-area: topbar;
-  border-bottom: 2px solid rgba(255, 204, 0, 0.33);
 }
 
 .grid.backend .titlebar {
@@ -69,8 +64,8 @@
 
 @media (max-width: 769px) {
   .grid.backend {
-    grid-template-rows: 30px 80px 1fr 1px 1px;
+    grid-template-rows: 8rem 1fr 1px 1px;
     grid-template-columns: 1fr;
-    grid-template-areas: "topbar" "titlebar" "container" "blankright" "blankleft";
+    grid-template-areas: "titlebar" "container" "blankright" "blankleft";
   }
 }

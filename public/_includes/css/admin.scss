@@ -49,7 +49,8 @@ $blubright   : #05aded;
   height: 100vh;
 
   grid-template-columns: 1fr 750px 1fr;
-  grid-template-rows: 30px 80px 1fr;
+
+  grid-template-rows: 7rem 6rem 6rem 1fr;
 
   @media (min-width: 992px) {
     grid-template-columns: 1fr 970px 1fr;
@@ -60,14 +61,29 @@ $blubright   : #05aded;
   }
 
   grid-template-areas:
-    "topbar topbar topbar"
     "titlebar titlebar titlebar"
+    "blankleft container blankright"
+    "blankleft container blankright"
     "blankleft container blankright";
 
-  .topbar {
-    grid-area: topbar;
-    border-bottom: 2px solid rgba($gubatgeel, 0.33);
-  }
+  // .smallbar {
+  //   grid-area: smallbar;
+  //   border-bottom: 2px solid rgba($gubatgeel, 0.33);
+  //
+  //   &.offline {
+  //     background: rgba($gubatgeel, 0.33);
+  //     color: $donker;
+  //   }
+  // }
+  //
+  // .menu {
+  //   grid-area: menu;
+  //   border-bottom: 2px solid rgba($bludim, 0.5);
+  // }
+  // .status {
+  //   grid-area: status;
+  //   border-bottom: 2px solid rgba($bludim, 0.5);
+  // }
 
   .titlebar {
     grid-area: titlebar;
@@ -86,13 +102,15 @@ $blubright   : #05aded;
   }
 
   @media(max-width: 769px) {
-    grid-template-rows: 30px 80px 1fr 1px 1px;
+    grid-template-rows: 8rem 1fr 1px 1px;
     grid-template-columns: 1fr;
 
     grid-template-areas:
-      "topbar"
       "titlebar"
+      // "menu"
       "container"
+      // "status"
+      // "smallbar"
       "blankright"
       "blankleft";
   }
