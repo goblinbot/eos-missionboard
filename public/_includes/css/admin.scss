@@ -123,9 +123,9 @@ $blubright   : #05aded;
 
   grid-template-areas:
     "titlebar titlebar titlebar"
-    "blankleft container blankright"
-    "blankleft container blankright"
-    "blankleft container blankright";
+    "blockleft container blankright"
+    "blockleft container blankright"
+    "blockleft container blankright";
 
   // .smallbar {
   //   grid-area: smallbar;
@@ -151,8 +151,8 @@ $blubright   : #05aded;
     border-bottom: 2px solid rgba($bludim, 0.5);
   }
 
-  .blankleft {
-    grid-area: blankleft;
+  .blockleft {
+    grid-area: blockleft;
     background: rgba($bludim, 0.25);
   }
 
@@ -177,7 +177,7 @@ $blubright   : #05aded;
       // "status"
       // "smallbar"
       "blankright"
-      "blankleft";
+      "blockleft";
   }
 
 
