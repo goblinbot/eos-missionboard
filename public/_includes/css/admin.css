@@ -91,8 +91,6 @@
 }
 
 .grid.backend {
-  padding: 8px;
-  width: 100vw;
   min-height: 100vh;
   height: auto;
   grid-template-columns: 1fr 750px 1fr;
@@ -102,6 +100,13 @@
 
 .grid.backend .item {
   border-bottom: 0;
+}
+
+@media (min-width: 769px) {
+  .grid.backend {
+    padding: 8px;
+    width: 100vw;
+  }
 }
 
 @media (min-width: 992px) {
@@ -117,6 +122,10 @@
   }
 }
 
+.grid.backend #admkeypad {
+  padding: 1.5rem;
+}
+
 .grid.backend .titlebar {
   grid-area: titlebar;
   border-bottom: 2px solid rgba(15, 88, 121, 0.5);
@@ -124,17 +133,16 @@
 
 .grid.backend .blockleft {
   grid-area: blockleft;
-  background: rgba(15, 88, 121, 0.25);
+  opacity: 0.4;
 }
 
 .grid.backend .blankright {
   grid-area: blankright;
-  background: rgba(15, 88, 121, 0.25);
+  opacity: 0.4;
 }
 
 .grid.backend .container {
   grid-area: container;
-  padding: 1.5rem;
 }
 
 @media (max-width: 769px) {
@@ -143,4 +151,62 @@
     grid-template-columns: 1fr;
     grid-template-areas: "titlebar" "container" "blankright" "blockleft";
   }
+}
+
+#admin-panel {
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+}
+
+#admin-panel .item {
+  padding: 0;
+}
+
+#admin-panel .spacer {
+  background: #111;
+  min-height: 0.8rem;
+}
+
+#admin-panel .menu {
+  width: 100%;
+  grid-area: menu;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+}
+
+#admin-panel .menu .menu-block {
+  display: inline-block;
+  width: auto;
+  transition: 0.4s;
+  text-align: center;
+  border-bottom: 2px solid rgba(15, 88, 121, 0);
+  height: 8rem;
+  overflow: hidden;
+  padding-left: 1.4rem;
+  padding-right: 1.4rem;
+  padding-top: 12px;
+  font-size: 20px;
+  color: #DEDEDE;
+  text-decoration: none;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+@media (max-width: 769px) {
+  #admin-panel .menu .menu-block {
+    height: 6.4rem;
+    font-size: 18px;
+    padding-top: 4px;
+  }
+}
+
+#admin-panel .menu .menu-block:hover {
+  background-color: rgba(15, 88, 121, 0.66);
+  border-bottom: 2px solid #0f5879;
+}
+
+#admin-panel .content {
+  padding: 1.2rem;
 }

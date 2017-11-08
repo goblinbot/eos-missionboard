@@ -112,9 +112,12 @@ $blubright   : #05aded;
     border-bottom: 0;
   }
 
-  padding     : 8px;
+  @media(min-width:769px){
+    padding     : 8px;
+    width       : 100vw;
+  }
 
-  width       : 100vw;
+
   min-height  : 100vh;
   height      : auto;
 
@@ -155,6 +158,10 @@ $blubright   : #05aded;
   //   border-bottom: 2px solid rgba($bludim, 0.5);
   // }
 
+  #admkeypad{
+    padding: 1.5rem;
+  }
+
   .titlebar {
     grid-area: titlebar;
     border-bottom: 2px solid rgba($bludim, 0.5);
@@ -162,17 +169,18 @@ $blubright   : #05aded;
 
   .blockleft {
     grid-area: blockleft;
-    background: rgba($bludim, 0.25);
+    // background: rgba($bludim, 0.25);
+    opacity: 0.4;
   }
 
   .blankright {
     grid-area: blankright;
-    background: rgba($bludim, 0.25);
+    // background: rgba($bludim, 0.25);
+    opacity: 0.4;
   }
 
   .container {
     grid-area: container;
-    padding: 1.5rem;
   }
 
   @media(max-width: 769px) {
@@ -190,4 +198,67 @@ $blubright   : #05aded;
   }
 
 
+}
+
+#admin-panel {
+
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+
+  .item {
+    padding: 0;
+  }
+
+  .spacer {
+    background: $donker;
+    min-height: 0.8rem;
+  }
+
+
+  .menu {
+    width: 100%;
+    grid-area: menu;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+
+    .menu-block {
+      display: inline-block;
+      width: auto;
+      transition: 0.4s;
+      text-align: center;
+      border-bottom: 2px solid rgba($bludim, 0);
+
+      height: 8rem;
+      overflow: hidden;
+
+      padding-left: 1.4rem;
+      padding-right: 1.4rem;
+      padding-top: 12px;
+
+      font-size: 20px;
+      color: $donkerwit;
+      text-decoration: none;
+      font-weight: bold;
+
+      cursor: pointer;
+
+      @media(max-width: 769px) {
+        height: 6.4rem;
+        font-size: 18px;
+        padding-top: 4px;
+      }
+
+      &:hover {
+        // color: $donker;
+        background-color: rgba($bludim,0.66);
+        border-bottom: 2px solid $bludim;
+      }
+    }
+  }
+
+  .content {
+    padding: 1.2rem;
+  }
 }
