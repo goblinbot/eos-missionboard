@@ -1,6 +1,10 @@
+function navigateADM(target) {
 
+  $('#admin-panel').empty();
 
+  $('#admin-panel').load('/admin/' + target + '.html');
 
+}
 
 
 

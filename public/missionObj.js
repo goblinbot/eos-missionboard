@@ -20,7 +20,7 @@ function mission(id, priority, type, goal, title, authorisedBool, authorisedBy, 
 
   currentTime = currentHours + ":" + currentMinutes + ":" + currentSeconds;
 
-  this.title = id;
+  this.id = id;
   this.priority = 3; /* 0-5? */
   this.type = 'combat'; /* type = bijv. combat, research, diplo. Kleuren/class baseren op deze types. */
   this.goal = ''; /* max 20 woorden. */
