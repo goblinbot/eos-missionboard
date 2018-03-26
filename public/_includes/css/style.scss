@@ -8,6 +8,7 @@ $donkerwit : #DEDEDE;
 $beaconblauw: #39DBCC;
 $gubatgeel  : #FFCC00;
 $orbitgreen : #4fe38b;
+$tomatored : tomato;
 
 $bludim      : #0f5879;
 $blubright   : #05aded;
@@ -37,7 +38,7 @@ body {
   font-size: 14px;
   background-color: $donker;
   @media(min-width:769px){
-    background-image: url('/img/citadel.jpg');    
+    background-image: url('/img/citadel.jpg');
   }
 
   font-family: $fontregular;
@@ -88,7 +89,9 @@ img {
   text-align: right;
 }
 
-
+.tomato {
+  color: $tomatored;
+}
 
 
 .grid {

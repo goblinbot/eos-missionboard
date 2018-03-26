@@ -1,5 +1,1 @@
-@import url(/_includes/css/font-awesome.min.css);
-@font-face {
-  font-family: 'Digital-7';
-  src: url(/_includes/fonts/digital-7.ttf);
-}
+@import url(/_includes/webfonts/fa-brands.min.css);@import url(/_includes/webfonts/fa-regular.min.css);@import url(/_includes/webfonts/fa-solid.min.css);@import url(/_includes/css/fontawesome.min.css);@font-face{font-family:'Digital-7';src:url(/_includes/fonts/digital-7.ttf)}
