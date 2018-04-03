@@ -13,12 +13,10 @@ $tomatored : tomato;
 $bludim      : #0f5879;
 $blubright   : #05aded;
 
-
-
 $defaultspace : 0.8rem;
 
-$fontregular : Helvetica, "Helvetica Neue", Arial, sans-serif;
-$fonttitle : Helvetica, "Helvetica Neue", Arial, sans-serif;
+$fontregular : 'Quantico', "Helvetica Neue", Arial, sans-serif;
+$fonttitle : 'Quantico', $fontregular;
 $fonttime : 'digital-7', $fontregular;
 
 @import 'fonts.scss';
@@ -158,18 +156,18 @@ img {
         }
       }
 
-      h1 {
-        .alt {
+      > h1 {
+        > .alt {
           color: rgba($donkerwit, 0.8);
         }
-        margin: $defaultspace;
-        padding: $defaultspace;
-        font-size: 3rem;
 
-        @media(max-width: 769px) {
-          margin: 0 $defaultspace;
-          padding: 0;
+        margin: 0 $defaultspace;
+        padding: 0;
+
+        @media(min-width: 769px) {
+          font-size: 4.8rem;
         }
+
       }
 
       border-bottom: 2px solid rgba($donkerwit, 0.5);
@@ -202,6 +200,8 @@ img {
         color: $donkerwit;
         text-decoration: none;
         font-weight: bold;
+
+        cursor: pointer;
 
         @media(max-width: 769px) {
           height: 6rem;

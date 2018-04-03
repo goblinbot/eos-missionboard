@@ -4,6 +4,9 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+  <link href="https://fonts.googleapis.com/css?family=Quantico" rel="stylesheet">
+
   <link rel="stylesheet" type="text/css" href="/_includes/css/style.css" />
   <title>STRATI.OS Mission control</title>
 </head>
@@ -13,16 +16,15 @@
 
     <div class="top item">
       <img src="/img/logo.png" alt="MMI logo" class="logo">
-      <!-- <h1><span class="alt">M</span>MISSIONBOARD</h1> -->
       <h1>STRATI<span class="alt">.OS</span></h1>
     </div>
 
 
     <div class="menu item">
 
-      <a class="menu-block" href="/"><i class="fas fa-shield-alt"></i><br/>MISSIONS</a>
-      <a class="menu-block" href="/"><i class="fas fa-fighter-jet"></i><br/>TRANSPORT</a>
-      <a class="menu-block" href="/admin/"><i class="fas fa-key tomato"></i><br/>ADMIN</a>
+      <a class="menu-block" onclick="openTab('home');"><i class="fas fa-shield-alt"></i><br/>MISSIONS</a>
+      <a class="menu-block" onclick="openTab('transports');"><i class="fas fa-fighter-jet"></i><br/>TRANSPORT</a>
+      <a class="menu-block" href="/admin/"><i class="fas fa-key"></i><br/>ADMIN</a>
 
     </div>
 
@@ -37,7 +39,7 @@
     </div>
 
 
-    <div class="main item">
+    <div id="board" class="main item">
 
     </div>
 
@@ -51,7 +53,7 @@
 
 
     <div class="footerclock item">
-      <h2 id="clock" class="text-center">HH:ii:00&nbsp;ECT</h2>
+      <h2 id="clock" class="text-center">00:00:00&nbsp;ECT</h2>
     </div>
 
 

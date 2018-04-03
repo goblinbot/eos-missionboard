@@ -12,11 +12,11 @@ function checkGridSupport() {
 				result = CSS.supports("display", "grid");
 			}
 			catch(err) {
-				$('.menu.item').html('<p style="font-size:1.7rem;font-weight:bold;" class="text-center">You are using a <u>severely outdated</u> browser. <br/>Please upgrade to a modern browser, like Firefox or Chrome.</p>');
+				$('#board').html('<p style="font-size:1.7rem;font-weight:bold;" class="text-center">You are using a <u>severely outdated</u> browser. <br/>Please upgrade to a modern browser, like Firefox or Chrome.</p>');
 			}
 
 		if(result == false) {
-			$('.menu.item').html('<p style="font-size:1.7rem;font-weight:bold;opacity:0.8;" class="text-center">Your current browser does not support CSS grids. Please upgrade to a modern browser (i.e. Chrome/Firefox).</p>');
+			$('#board').html('<p style="font-size:1.7rem;font-weight:bold;opacity:0.8;" class="text-center">Your current browser does not support CSS grids. Please upgrade to a modern browser (i.e. Chrome/Firefox).</p>');
 		} else {
 			console.log('checkGridSupport => Thank you for using a real browser!');
 		}
@@ -24,6 +24,12 @@ function checkGridSupport() {
 		console.log('checkGridSupport => Mobile resolution detected.');
 	}
 
+
+}
+
+function openTab(target) {
+
+	return false;
 
 }
 
