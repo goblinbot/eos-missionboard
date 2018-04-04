@@ -12,6 +12,11 @@ $orbitgreen : #4fe38b;
 $bludim      : #0f5879;
 $blubright   : #05aded;
 
+$googleShade : 0 1px 8px 0 rgba(0,0,0,.2),0 3px 4px 0 rgba(0,0,0,.14),0 3px 3px -2px rgba(0,0,0,.12);
+
+$fontregular : 'Quantico', "Helvetica Neue", Arial, sans-serif;
+$fonttitle : 'Quantico Bold', $fontregular;
+
 
 .keypad-row {
 
@@ -142,6 +147,20 @@ $blubright   : #05aded;
     "blockleft container blankright"
     "blockleft container blankright";
 
+  @media(max-width: 769px) {
+    grid-template-rows: auto 1fr 1px 1px;
+    grid-template-columns: 1fr;
+
+    grid-template-areas:
+      "titlebar"
+      // "menu"
+      "container"
+      // "status"
+      // "smallbar"
+      "blankright"
+      "blockleft";
+  }
+
   // .smallbar {
   //   grid-area: smallbar;
   //   border-bottom: 2px solid rgba($gubatgeel, 0.33);
@@ -165,41 +184,45 @@ $blubright   : #05aded;
     padding: 1.5rem;
   }
 
-  .titlebar {
+  > .titlebar {
     grid-area: titlebar;
     border-bottom: 2px solid rgba($bludim, 0.5);
+
+    a {
+      display: flex;
+      flex-direction: row;
+      text-decoration: none;
+      transition: 0.4s;
+      margin-top: -4px;
+
+      color: $donkerwit;
+      &:hover {
+        color: #FFF;
+      }
+
+      > img {
+        max-height: 6rem;
+        max-width: 6rem;
+      }
+    }
+
   }
 
-  .blockleft {
+  > .blockleft {
     grid-area: blockleft;
     // background: rgba($bludim, 0.25);
     opacity: 0.4;
   }
 
-  .blankright {
+  > .blankright {
     grid-area: blankright;
     // background: rgba($bludim, 0.25);
     opacity: 0.4;
   }
 
-  .container {
+  > .container {
     grid-area: container;
   }
-
-  @media(max-width: 769px) {
-    grid-template-rows: auto 1fr 1px 1px;
-    grid-template-columns: 1fr;
-
-    grid-template-areas:
-      "titlebar"
-      // "menu"
-      "container"
-      // "status"
-      // "smallbar"
-      "blankright"
-      "blockleft";
-  }
-
 
 }
 
@@ -263,5 +286,58 @@ $blubright   : #05aded;
 
   .content {
     padding: 1.2rem;
+  }
+}
+
+form {
+
+  > .row {
+    display: flex;
+    flex-direction: column;
+
+    > label {
+      margin: 0.8rem 0;
+      font-size: 1.6rem;
+    }
+
+    > input, > select {
+
+      background: lighten($donker-alt, 10%);
+      border: 0;
+      border-bottom: 3px solid $bludim;
+      box-shadow: $googleShade;
+      color: $donkerwit;
+      font-size: 1.4rem;
+      margin: 0.8rem 0;
+      padding: 0.8rem;
+      transition: 0.3s;
+
+      &:hover, &:active, &:focus {
+        background: lighten($donker-alt, 15%);
+        border-color: $blubright;
+      }
+
+    }
+
+    > .button {
+      margin: 1.6rem 0 0 0;
+      font-family: $fonttitle;
+      font-size: 1.6rem;
+
+      background: $blubright;
+      border: 0;
+      color: $donker;
+      cursor: pointer;
+
+      &:hover {
+        color: $donkerwit;
+        background: $bludim;
+      }
+      &:active, &:focus {
+        color: $donkerwit;
+        background: darken($bludim,10%);
+      }
+    }
+
   }
 }

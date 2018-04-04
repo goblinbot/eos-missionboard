@@ -7,6 +7,8 @@ var $       = require('jquery');
 var bodyParser = require('body-parser');
 var fs = require('fs');
 
+var urlencodedParser = bodyParser.urlencoded({ extended: false});
+
 /* INITIALISEN VAN APP */
 var port = process.env.PORT || 5002;
 
@@ -17,6 +19,7 @@ app.use(express.static('_includes'));
 app.use('_includes', express.static('public'));
 
 app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json());
 
 http.listen(port, function(){
   console.log('// MMI PROUDLY PRESENTS => EOSMISSIONBOARD \n WELCOME ::COLONIST::');
@@ -37,16 +40,29 @@ app.get('*', function(req, res){
   res.sendFile('404.html', {"root": __dirname+'/public/'});
 });
 
+
+app.post('/index', urlencodedParser, function(req, res){
+
+  /* data is already JSON! */
+  let data = req.body;
+
+  /* HANDLE RES DATA HERE */
+  console.log(data);
+
+  res.sendFile('index.html', {"root": __dirname+'/public/admin/'});
+
+});
+
+
+
 io.on('connection', function (socket) {
 
   setTimeout(function(){
+
     /* send FRONTEND data to FRONT */
     socket.emit('init_frontendBoard', missions);
 
   },1000);
-
-
-
 
 
 

@@ -15,8 +15,10 @@ $blubright   : #05aded;
 
 $defaultspace : 0.8rem;
 
+$googleShade : 0 1px 8px 0 rgba(0,0,0,.2),0 3px 4px 0 rgba(0,0,0,.14),0 3px 3px -2px rgba(0,0,0,.12);
+
 $fontregular : 'Quantico', "Helvetica Neue", Arial, sans-serif;
-$fonttitle : 'Quantico', $fontregular;
+$fonttitle : 'Quantico Bold', $fontregular;
 $fonttime : 'digital-7', $fontregular;
 
 @import 'fonts.scss';
@@ -64,6 +66,9 @@ h1, h2, h3, h4, h5 {
     padding: $defaultspace;
     color: $donker;
   }
+}
+h4, h5 {
+  font-family: $fontregular;
 }
 
 .time {
@@ -250,9 +255,35 @@ img {
 
     .footerconnect {
       grid-area: footerconnect;
+      transition: 0.2s;
+      // color: rgba($orbitgreen,0.5);
+      // border-color: rgba($orbitgreen,0.5);
+      color: rgba($blubright,0.5);
+
+      &:hover {
+        color: $orbitgreen;
+        border-color: $orbitgreen;
+      }
     }
 
   }
+
+  // &.backend {
+  //
+  //   > .titlebar {
+  //     > img {
+  //       height: 5rem;
+  //       width: 5rem;
+  //       margin: (-$defaultspace) $defaultspace 0 $defaultspace;
+  //
+  //       @media(max-width: 769px) {
+  //         display: none;
+  //       }
+  //     }
+  //   }
+  //
+  //
+  // }
 
 }
 
@@ -262,4 +293,42 @@ img {
 }
 #dd, #dow {
   color: $blubright;
+}
+
+
+@keyframes rotator {
+  0%    {transform: rotate(0deg);}
+  50%   {transform: rotate(180deg);}
+  100%  {transform: rotate(360deg);}
+}
+.spinner  {
+  position      : relative;
+  left          : 25%;
+  margin        : 12.8rem;
+  height        : 12.8rem;
+  width         : 12.8rem;
+  border-radius : 50%;
+  border        : 32px solid $bludim;
+  border-left   : 32px solid $blubright;
+  animation: rotator  1.4s linear infinite;
+
+}
+
+.transitionOverlay {
+  transition: 0.3s;
+  position: fixed;
+  background: rgba($bludim, 0.25);
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+
+  > i {
+    position: absolute;
+    top: 44vh;
+    font-size: 6.4rem;
+    width: 100%;
+    text-align: center;
+    text-shadow: 0 0 3px $bludim;
+  }
 }

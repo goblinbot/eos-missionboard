@@ -3,54 +3,44 @@
 
   <a class="menu-block" onclick="navigateADM('adminpanel');"><i class="fa fa-list"></i><br/>BACK</a>
 
-  <a class="menu-block" onclick=""><i class="fa fa-save"></i><br/>SAVE SETTINGS</a>
-
 </div>
 
 <div class="spacer"></div>
 
 <div class="content item">
 
-  <form action="" id="newMission">
+  <form method="POST" action="/index" id="newMission" class="form">
 
     <div class="row">
       <label>Mission Title</label>
-      <input name="title" type="text" class="textinput">
+      <input name="title" type="text" required="required" class="textinput">
     </div>
 
-    <div class="row">
+    <!-- <div class="row">
       <label>Type of mission</label>
       <input name="type" type="text" class="textinput" placeholder="For example, Combat, Research..">
-    </div>
+    </div> -->
 
     <div class="row">
       <label>Mission goal</label>
-      <input name="goal" type="text" class="textinput" placeholder="Try to keep it short.">
+      <input name="goal" type="text" class="textinput" required="required" placeholder="Try to keep it short.">
     </div>
 
     <div class="row">
-      <label>Number of participants</label>
-      <input name="requestedAgents" type="number" class="numberinput">
+      <label>Commanding officer / XO</label>
+      <input name="XO" type="text" class="textinput" placeholder="" max="100">
     </div>
 
     <div class="row">
-      <label>Commanding officer</label>
-      <input name="XO" type="text" class="textinput" placeholder="">
-    </div>
-
-    <div class="row">
-      <label>Groups</label>
-      <input name="groups" type="text" class="textinput" placeholder="">
-    </div>
-
-    <div class="row">
-      <label>Date</label>
-      <input name="date" type="text" class="textinput" placeholder="13-03-240NT">
-    </div>
-
-    <div class="row">
-      <label>Time</label>
-      <input name="date" type="text" class="textinput" placeholder="15:00" max="5">
+      <label>Colourcode</label>
+      <select name="colour">
+        <option value="default">Gray (default)</option>
+        <option value="green">Green</option>
+        <option value="blue">Blue</option>
+        <option value="yellow">Yellow</option>
+        <option value="orange">Orange</option>
+        <option value="red">Red</option>
+      </select>
     </div>
 
     <div class="row">
@@ -62,24 +52,41 @@
     </div>
 
     <div class="row">
-
+      <label>Start/departing (Time)</label>
+      <input id="startTime" name="startTime" type="time" class="textinput" max="5">
     </div>
-    
+
     <div class="row">
-      <p>Authorised by:</p>
-      <input type="text" class="textinput" name="authname"><br/>
-      <input type="text" class="textinput" name="authdate"><br/>
-      <input type="text" class="textinput" name="authsigned"><br/>
+      <label>Estimated return</label>
+      <input id="endTime" name="endTime" type="time" class="textinput" max="5">
     </div>
 
-    <br/>
-
-    <br/>
-
-    <label>Time</label>
-    <input name="title" type="text" class="textinput" placeholder="15:00">
-
+    <div class="row">
+      <input value="Add mission" type="submit" class="button">
+    </div>
 
   </form>
 
 </div>
+
+<script type="text/javascript">
+  $(document).ready(function(){
+
+    let currentTime = new Date();
+    let currentHours   = (currentTime.getHours ( ));
+    let currentMinutes = currentTime.getMinutes ( );
+    let currentSeconds = currentTime.getSeconds ( );
+
+    currentHours = ( currentHours < 10 ? "0" : "" ) + currentHours;
+    currentMinutes = ( currentMinutes < 10 ? "0" : "" ) + currentMinutes;
+    currentSeconds = ( currentSeconds < 10 ? "0" : "" ) + currentSeconds;
+
+
+    let startTimeString = currentHours + ":" + currentMinutes;
+
+    $('#startTime').val(startTimeString);
+
+    /*let endTimeString = currentHours + ":" + currentMinutes;*/
+
+  });
+</script>

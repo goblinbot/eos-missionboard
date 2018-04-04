@@ -33,6 +33,17 @@ function openTab(target) {
 
 }
 
+function showSpinner() {
+
+	$('body').prepend('<div class="transitionOverlay"><i class="fas fa-sync fa-spin"></i></div>');
+
+	setTimeout(function(){
+		let overlay = $('body').find('.transitionOverlay');
+		overlay.empty().remove();
+	},750)
+
+}
+
 
 
 /* CLOCK */
