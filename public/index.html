@@ -68,14 +68,8 @@ socket.on('init_frontendBoard', function(missions){
 
   showSpinner();
 
-  if(missions.length > 0) {
-    console.log('<> Operations detected. Initialising phase one.');
-  } else {
-    console.log('<> No operations active.');
-  }
+  parseMissions(missions);
 
-
-  console.log(missions);
 });
 
 /* receive portal status updates here (server->client)*/
@@ -83,7 +77,8 @@ socket.on('updateMissionBoard', function(missions){
 
   showSpinner();
 
-
+  parseMissions(missions);
+  console.log(missions);
 
 });
 

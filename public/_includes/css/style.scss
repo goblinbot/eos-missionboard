@@ -84,6 +84,15 @@ img {
   text-align: center;
 }
 
+@media(min-width: 992px) {
+  .center-center {
+    text-align: center;
+    top: 33vh;
+    position: relative;
+  }
+}
+
+
 .hidden {
   display: none;
 }
@@ -94,6 +103,10 @@ img {
 
 .tomato {
   color: $tomatored;
+}
+
+.terminaltext {
+  color: $orbitgreen;
 }
 
 

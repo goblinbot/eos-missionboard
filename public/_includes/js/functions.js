@@ -44,6 +44,33 @@ function showSpinner() {
 
 }
 
+/* PARSE THE JSON/ARRAY CONTAINING ALL MISSIONS, BY DATE AND TIME! */
+function parseMissions(missions) {
+
+	let d = new Date();
+	var currentdate = (d.getDay() + "-" + d.getMonth() + "-" + d.getFullYear());
+	let board = $('#board');
+
+	if(missions.length > 0) {
+
+		board.empty().html('<h2 class="center-center terminaltext">Processing..</h2>');
+
+    console.log('<> Operations detected. Initialising phase one.');
+
+		/* FOR EACH MISSION... */
+
+	} else {
+    noMissionMessage();
+  }
+
+}
+
+/* Print a NO ACTIVE MISSIONS message. This is a function for re-using. */
+function noMissionMessage() {
+
+	$('#board').html('<h2 class="center-center"><i class="fas fa-check"></i> No active or planned missions. Please stand by.</h2>');
+
+}
 
 
 /* CLOCK */

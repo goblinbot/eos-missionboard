@@ -60,15 +60,22 @@ io.on('connection', function (socket) {
 
     /* HANDLE RES DATA HERE */
     let d = new Date();
-    data['date'] = ( d.getDay() + "-" + d.getMonth() + "-" + d.getFullYear() );
+    let fulldate = (d.getDay() + "-" + d.getMonth() + "-" + d.getFullYear());
+
+    // if(!missions[fulldate]) {
+    //   missions[fulldate] = [];
+    // }
+
+    data['date'] = fulldate;
     data['id'] = missionCounter;
 
+    // missions[fulldate][missionCounter] = data;
     missions[missionCounter] = data;
     missionCounter++;
 
     console.log(missions);
 
-    socket.emit('updateMissionBoard', missions);
+    io.emit('updateMissionBoard', missions);
 
     res.sendFile('index.html', {"root": __dirname+'/public/admin/'});
 
