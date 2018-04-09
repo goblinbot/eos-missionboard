@@ -1,18 +1,19 @@
 /* dependancies verklaren en ophalen */
-var express = require('express');
-var app     = express();
-var http    = require('http').Server(app);
-var io      = require('socket.io')(http);
-var $       = require('jquery');
-var bodyParser = require('body-parser');
-var fs = require('fs');
+const express = require('express');
+const app     = express();
+const http    = require('http').Server(app);
+const io      = require('socket.io')(http);
+const $       = require('jquery');
+const bodyParser = require('body-parser');
+const fs = require('fs');
 
-var urlencodedParser = bodyParser.urlencoded({ extended: false});
+const urlencodedParser = bodyParser.urlencoded({ extended: false});
 
 /* INITIALISEN VAN APP */
-var port = process.env.PORT || 5002;
+const port = process.env.PORT || 5002;
 
 var missions = [];
+var missionCounter = 0;
 
 app.use(express.static('public'));
 app.use(express.static('_includes'));
@@ -41,19 +42,6 @@ app.get('*', function(req, res){
 });
 
 
-app.post('/index', urlencodedParser, function(req, res){
-
-  /* data is already JSON! */
-  let data = req.body;
-
-  /* HANDLE RES DATA HERE */
-  console.log(data);
-
-  res.sendFile('index.html', {"root": __dirname+'/public/admin/'});
-
-});
-
-
 
 io.on('connection', function (socket) {
 
@@ -63,6 +51,28 @@ io.on('connection', function (socket) {
     socket.emit('init_frontendBoard', missions);
 
   },1000);
+
+
+  app.post('/index', urlencodedParser, function(req, res){
+
+    /* data is already JSON! */
+    let data = req.body;
+
+    /* HANDLE RES DATA HERE */
+    let d = new Date();
+    data['date'] = ( d.getDay() + "-" + d.getMonth() + "-" + d.getFullYear() );
+    data['id'] = missionCounter;
+
+    missions[missionCounter] = data;
+    missionCounter++;
+
+    console.log(missions);
+
+    socket.emit('updateMissionBoard', missions);
+
+    res.sendFile('index.html', {"root": __dirname+'/public/admin/'});
+
+  });
 
 
 
