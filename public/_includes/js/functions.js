@@ -64,9 +64,6 @@ function connError() {
 function reConn() {
 	if($('.errorOverlay').length > 0) {
 		$('.errorOverlay').empty().remove();
-		/*setTimeout(function(){
-			socket.emit('requestMissions');
-		},500);*/
 	}
 }
 
@@ -77,7 +74,7 @@ function parseMissions(missions) {
 	let d = new Date();
 	let currentdate = (d.getDay() + "-" + d.getMonth() + "-" + d.getFullYear());
 	let prevdate = ((d.getDay()-1) + "-" + d.getMonth() + "-" + d.getFullYear());
-	let board = $('#board').find('#missions');
+	let board = $('#missions');
 
 	if(missions.length > 0) {
 
@@ -94,11 +91,15 @@ function parseMissions(missions) {
 				/* check the date */
 				if(entry.date == currentdate || entry.date == prevdate) {
 
-					let printresult = "<div><p>" + entry.title + " | " + entry.goal + "<br/>";
+					let printresult = "<div class=\"entry "+entry.colour+"\">"
+					 + "<div class=\"rows\">Title:<br/>" + entry.title + "</div>"
+					 + "<div class=\"rows\">Goal:<br/>" + entry.goal + "</div>"
+					 + "<div class=\"rows\">XO:<br/>" + entry.XO + "</div>"
+					 + "<div class=\"rows\">Shuttle:<br/>" + entry.shuttlebool + "</div>"
+					 + "<div class=\"rows\">Departs:<br/>" + entry.startTime + "</div>"
+					 + "<div class=\"rows\">Est. return:<br/>" + entry.endTime + "</div>";
 
-					printresult += "XO: "+ entry.XO + "<br/>";
-					/*printresult += */
-					printresult += "</p></div>";
+					printresult += "</div>";
 
 					board.append(printresult);
 				}
@@ -119,7 +120,7 @@ function parseMissions(missions) {
 /* Print a NO ACTIVE MISSIONS message. This is a function for re-using. */
 function noMissionMessage() {
 
-	$('#board').find('#missions').html('<h2 class="center-center"><i class="fas fa-check"></i> No active or planned missions. Please stand by.</h2>');
+	$('#missions').html('<h2 class="center-center"><i class="fas fa-check"></i> No active or planned missions. Please stand by.</h2>');
 
 }
 

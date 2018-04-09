@@ -10,16 +10,36 @@
 
 <div class="spacer"></div>
 
-<div id="board" class="content item">
+<div class="content item">
 
-
+  <div id="missions"></div>
 
 </div>
 
 <script>
-  $(document).ready(function(){
 
-    /*navigateADM('misslist');*/
+socket.on('init_frontendBoard', function(missions){
 
-  });
+  showSpinner();
+
+  parseMissionsADM(missions);
+
+});
+
+/* receive portal status updates here (server->client)*/
+socket.on('updateMissionBoard', function(missions){
+
+  showSpinner();
+
+  parseMissionsADM(missions);
+
+});
+
+socket.on('connect', function(){
+  reConn();
+});
+socket.on('disconnect', function(){
+  connError();
+});
+
 </script>
