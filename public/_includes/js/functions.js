@@ -1,7 +1,7 @@
 var socket = io();
-
-
-
+var clockCache = "";
+var ddCache = "";
+var dowCache = "";
 
 
 function checkGridSupport() {
@@ -91,30 +91,36 @@ function updateClock() {
 
   var dow;
   var dd = currentTime.getDate();
-  var mm = currentTime.getMonth()+1;
+  /*var mm = currentTime.getMonth()+1;*/
 
   if(dd < 10){
     dd='0'+dd;
   }
 
-  if (dd == 10) {
-    dd    = '13';
+  if (dd == 20) {
+    dd    = '20';
     dow   = 'FRI';
-  } else if (dd == 11) {
-    dd    = '14';
+  } else if (dd == 21) {
+    dd    = '21';
     dow   = 'SAT';
-  } else if (dd == 12) {
-    dd    = '15';
+  } else if (dd == 22) {
+    dd    = '22';
     dow   = 'SUN';
   } else {
-    dd    = '13';
+    dd    = '20';
     dow   = 'FRI';
   }
-  $("#dd").html(dd);
-  $("#dow").html(dow);
+	/* put the target HTML elements into a var we can keep reusing; that way the function will only need to look up each element ONCE. */
+	if(clockCache == ""){ clockCache = $("#clock"); }
+	if(ddCache == ""){ ddCache = $("#dd"); }
+	if(dowCache == ""){ dowCache = $("#dow"); }
 
- 	$("#clock").html(currentTimeString);
+	/* apply clock to cached element. */
+	clockCache.html(currentTimeString);
+	ddCache.html(dd);
+	dowCache.html(dow);
 }
+
 $(document).ready(function() {
   updateClock();
 	checkGridSupport()
