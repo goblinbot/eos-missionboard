@@ -31,7 +31,7 @@ function openTab(target) {
 
 	if(target) {
 		let board = $('#board');
-		board.find('tabs').removeClass('active');
+		board.find('.tabs').removeClass('active');
 
 		if($('#'+target).length > 0) {
 			$('#'+target).addClass('active');
