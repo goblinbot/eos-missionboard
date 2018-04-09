@@ -58,6 +58,21 @@ function showSpinner() {
 
 }
 
+/* show / hide dialogues on connecting/disconnecting */
+function connError() {
+	$('body').prepend('<div class="errorOverlay"><div class="center-center"><h1><i class="fas fa-exclamation-triangle"></i> CONNECTION LOST</h1></div></div>');
+}
+
+function reConn() {
+	if($('.errorOverlay').length > 0) {
+		$('.errorOverlay').empty().remove();
+		/*setTimeout(function(){
+			socket.emit('requestMissions');
+		},500);*/
+	}
+}
+
+
 /* PARSE THE JSON/ARRAY CONTAINING ALL MISSIONS, BY DATE AND TIME! */
 function parseMissions(missions) {
 
@@ -91,7 +106,6 @@ function parseMissions(missions) {
 function noMissionMessage() {
 
 	$('#board').find('#missions').html('<h2 class="center-center"><i class="fas fa-check"></i> No active or planned missions. Please stand by.</h2>');
-	return false;
 
 }
 

@@ -85,5 +85,12 @@ socket.on('updateMissionBoard', function(missions){
 
 });
 
+socket.on('connect', function(){
+  reConn();
+});
+socket.on('disconnect', function(){
+  connError();
+});
+
 </script>
 </html>

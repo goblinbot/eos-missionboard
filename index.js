@@ -88,7 +88,10 @@ io.on('connection', function (socket) {
 
   });
 
-
+  /* send missions on reconnect */
+  socket.on('requestMissions', function() {
+    socket.emit('init_frontendBoard', missions);
+  });
 
   socket.on('auth', function(keycode){
     var checklogincode = 0;
