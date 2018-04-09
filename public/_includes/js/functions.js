@@ -31,6 +31,20 @@ function openTab(target) {
 
 	return false;
 
+	if(target) {
+		let board = $('#board');
+		board.find('tabs').removeClass('active');
+
+		if($('#'+target).length > 0) {
+			$('#'+target).addClass('active');
+		} else {
+			$('#missions').addClass('active');
+		}
+
+	}
+
+
+
 }
 
 function showSpinner() {
@@ -48,14 +62,22 @@ function showSpinner() {
 function parseMissions(missions) {
 
 	let d = new Date();
-	var currentdate = (d.getDay() + "-" + d.getMonth() + "-" + d.getFullYear());
-	let board = $('#board');
+	let currentdate = (d.getDay() + "-" + d.getMonth() + "-" + d.getFullYear());
+	let board = $('#board').find('#missions');
 
 	if(missions.length > 0) {
 
 		board.empty().html('<h2 class="center-center terminaltext">Processing..</h2>');
 
     console.log('<> Operations detected. Initialising phase one.');
+
+		$(missions).each(function(entry) {
+
+
+
+
+
+		});
 
 		/* FOR EACH MISSION... */
 
@@ -68,7 +90,8 @@ function parseMissions(missions) {
 /* Print a NO ACTIVE MISSIONS message. This is a function for re-using. */
 function noMissionMessage() {
 
-	$('#board').html('<h2 class="center-center"><i class="fas fa-check"></i> No active or planned missions. Please stand by.</h2>');
+	$('#board').find('#missions').html('<h2 class="center-center"><i class="fas fa-check"></i> No active or planned missions. Please stand by.</h2>');
+	return false;
 
 }
 
@@ -77,9 +100,9 @@ function noMissionMessage() {
 function updateClock() {
 	var currentTime = new Date();
 
-  	var currentHours   = currentTime.getHours ( );
-  	var currentMinutes = currentTime.getMinutes ( );
-  	var currentSeconds = currentTime.getSeconds ( );
+	var currentHours   = currentTime.getHours ( );
+	var currentMinutes = currentTime.getMinutes ( );
+	var currentSeconds = currentTime.getSeconds ( );
 
 	/* Pad the minutes and seconds with leading zeros, if required */
 	currentHours = ( currentHours < 10 ? "0" : "" ) + currentHours;
@@ -124,7 +147,6 @@ function updateClock() {
 $(document).ready(function() {
   updateClock();
 	checkGridSupport()
-
 
   setInterval('updateClock()', 1000);
 });

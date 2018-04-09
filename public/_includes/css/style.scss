@@ -240,6 +240,14 @@ img {
     .main {
       grid-area: main;
       border-bottom: 0;
+
+      > .tabs {
+        display: none;
+        &.active {
+          display: flex;
+        }
+      }
+
     }
 
     .side {

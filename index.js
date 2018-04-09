@@ -1,4 +1,10 @@
-/* dependancies verklaren en ophalen */
+/*< =========================================== >
+  | Author: Thijs Boerma
+  > Mission board : backend
+  |
+  < =========================================== >*/
+
+/* dependancies */
 const express = require('express');
 const app     = express();
 const http    = require('http').Server(app);
@@ -9,7 +15,7 @@ const fs = require('fs');
 
 const urlencodedParser = bodyParser.urlencoded({ extended: false});
 
-/* INITIALISEN VAN APP */
+/* INITIALISE THE APPLICATION */
 const port = process.env.PORT || 5002;
 
 var missions = [];
@@ -20,7 +26,7 @@ app.use(express.static('_includes'));
 app.use('_includes', express.static('public'));
 
 app.use(bodyParser.urlencoded({ extended: true }));
-app.use(bodyParser.json());
+app.use(bodyParser.json()); // turns FORM SUBMIT data into JSON from the get go.
 
 http.listen(port, function(){
   console.log('// MMI PROUDLY PRESENTS => EOSMISSIONBOARD \n WELCOME ::COLONIST::');
@@ -68,6 +74,7 @@ io.on('connection', function (socket) {
 
     data['date'] = fulldate;
     data['id'] = missionCounter;
+    data['status'] = 'Preparation';
 
     // missions[fulldate][missionCounter] = data;
     missions[missionCounter] = data;
@@ -88,7 +95,7 @@ io.on('connection', function (socket) {
     var loginrank = 0;
     console.log('authentication code received: '+keycode);
 
-    for (var i in valid_accounts) {
+    for (let i in valid_accounts) {
 
       if(valid_accounts[i].logincode == keycode) {
         checklogincode = 1;

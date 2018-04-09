@@ -3,7 +3,7 @@
   > Mission board : mission object structure.
   |
   <
-  |
+  | This JS file is currently not used.
   >
   |
   < =========================================== >*/
