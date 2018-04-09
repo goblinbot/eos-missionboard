@@ -29,8 +29,6 @@ function checkGridSupport() {
 
 function openTab(target) {
 
-	return false;
-
 	if(target) {
 		let board = $('#board');
 		board.find('tabs').removeClass('active');
@@ -60,7 +58,7 @@ function showSpinner() {
 
 /* show / hide dialogues on connecting/disconnecting */
 function connError() {
-	$('body').prepend('<div class="errorOverlay"><div class="center-center"><h1><i class="fas fa-exclamation-triangle"></i> CONNECTION LOST</h1></div></div>');
+	$('body').prepend('<div class="errorOverlay"><div class="center-center"><h1><i class="fas fa-exclamation-triangle"></i> CONNECTION LOST - Reconnecting ...</h1></div></div>');
 }
 
 function reConn() {
@@ -78,18 +76,34 @@ function parseMissions(missions) {
 
 	let d = new Date();
 	let currentdate = (d.getDay() + "-" + d.getMonth() + "-" + d.getFullYear());
+	let prevdate = ((d.getDay()-1) + "-" + d.getMonth() + "-" + d.getFullYear());
 	let board = $('#board').find('#missions');
 
 	if(missions.length > 0) {
 
-		board.empty().html('<h2 class="center-center terminaltext">Processing..</h2>');
+		board.empty();
 
     console.log('<> Operations detected. Initialising phase one.');
 
-		$(missions).each(function(entry) {
+		$(missions).each(function(counter) {
 
+			var entry = missions[counter];
 
+			/* check for status */
+			if(entry.status != 'done') {
+				/* check the date */
+				if(entry.date == currentdate || entry.date == prevdate) {
 
+					let printresult = "<div><p>" + entry.title + " | " + entry.goal + "<br/>";
+
+					printresult += "XO: "+ entry.XO + "<br/>";
+					/*printresult += */
+					printresult += "</p></div>";
+
+					board.append(printresult);
+				}
+
+			}
 
 
 		});

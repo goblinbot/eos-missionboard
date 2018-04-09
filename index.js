@@ -77,7 +77,8 @@ io.on('connection', function (socket) {
     data['status'] = 'Preparation';
 
     // missions[fulldate][missionCounter] = data;
-    missions[missionCounter] = data;
+    /*missions[missionCounter] = data;*/
+    missions.push(data);
     missionCounter++;
 
     console.log(missions);
