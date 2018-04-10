@@ -84,6 +84,14 @@ function parseMissions(missions) {
 
     console.log('<> Operations detected. Initialising phase one.');
 
+		board.append( "<div class=\"topheader\">"
+		 + "<div class=\"rows\">Title:</div>"
+		 + "<div class=\"rows\">Goal:</div>"
+		 + "<div class=\"rows\">XO:</div>"
+		 + "<div class=\"rows\">Shuttle:</div>"
+		 + "<div class=\"rows\">Departs:</div>"
+		 + "<div class=\"rows\">Est. return:</div>" );
+
 		$(missions).each(function(counter) {
 
 			var entry = missions[counter];
@@ -94,12 +102,12 @@ function parseMissions(missions) {
 				if(entry.date == currentdate || entry.date == prevdate) {
 
 					let printresult = "<div class=\"entry "+entry.colour+"\">"
-					 + "<div class=\"rows\">Title:<br/>" + entry.title + "</div>"
-					 + "<div class=\"rows\">Goal:<br/>" + entry.goal + "</div>"
-					 + "<div class=\"rows\">XO:<br/>" + entry.XO + "</div>"
-					 + "<div class=\"rows\">Shuttle:<br/>" + entry.shuttlebool + "</div>"
-					 + "<div class=\"rows\">Departs:<br/>" + entry.startTime + "</div>"
-					 + "<div class=\"rows\">Est. return:<br/>" + entry.endTime + "</div>";
+					 + "<div class=\"rows\"><span class=\"sm-hidden\">Title:<br/></span>" + entry.title + "</div>"
+					 + "<div class=\"rows\"><span class=\"sm-hidden\">Goal:<br/></span>" + entry.goal + "</div>"
+					 + "<div class=\"rows\"><span class=\"sm-hidden\">XO:<br/></span>" + entry.XO + "</div>"
+					 + "<div class=\"rows\"><span class=\"sm-hidden\">Shuttle:<br/></span>" + entry.shuttlebool + "</div>"
+					 + "<div class=\"rows\"><span class=\"sm-hidden\">Departs:<br/></span>" + entry.startTime + "</div>"
+					 + "<div class=\"rows\"><span class=\"sm-hidden\">Est. return:<br/></span>" + entry.endTime + "</div>";
 
 					printresult += "</div>";
 

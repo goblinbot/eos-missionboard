@@ -33,13 +33,13 @@
 
     <div class="row">
       <label>Colourcode</label>
-      <select name="colour">
-        <option value="default">Gray (default)</option>
-        <option value="green">Green</option>
-        <option value="blue">Blue</option>
-        <option value="yellow">Yellow</option>
-        <option value="orange">Orange</option>
-        <option value="red">Red</option>
+      <select name="colourcode">
+        <option value="10">Gray (default)</option>
+        <option value="20">Blue</option>
+        <option value="30">Green</option>
+        <option value="40">Yellow</option>
+        <option value="50">Orange</option>
+        <option value="60">Red</option>
       </select>
     </div>
 
@@ -85,6 +85,7 @@
     let startTimeString = currentHours + ":" + currentMinutes;
 
     $('#startTime').val(startTimeString);
+    $('#endTime').val(startTimeString);
 
     /*let endTimeString = currentHours + ":" + currentMinutes;*/
 

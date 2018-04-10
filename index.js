@@ -68,18 +68,48 @@ io.on('connection', function (socket) {
     let d = new Date();
     let fulldate = (d.getDay() + "-" + d.getMonth() + "-" + d.getFullYear());
 
-    // if(!missions[fulldate]) {
-    //   missions[fulldate] = [];
-    // }
+    //switch
+
+    // 10 GRIJS
+    // 20 BLAUW
+    // 30 GROEN
+    // 40 GEEL
+    // 50 ORANJE
+    // 60 ROOD
+    switch(data['colourcode']) {
+      case '10':
+      default:
+        data['colour'] = 'gray';
+        break;
+      case '20':
+        data['colour'] = 'blue';
+        break;
+      case '30':
+        data['colour'] = 'green';
+        break;
+      case '40':
+        data['colour'] = 'yellow';
+        break;
+      case '50':
+        data['colour'] = 'orange';
+        break;
+      case '60':
+        data['colour'] = 'red';
+        break;
+    }
+
 
     data['date'] = fulldate;
     data['id'] = missionCounter;
     data['status'] = 'Preparation';
 
+    missions = sortByCode(missions, missions['colourcode']);
+
     // missions[fulldate][missionCounter] = data;
     /*missions[missionCounter] = data;*/
     missions.push(data);
     missionCounter++;
+
 
     console.log(missions);
 
@@ -116,7 +146,24 @@ io.on('connection', function (socket) {
 
 });
 
+/* SORT ARRAY BY NUMBER */
+function sortByCode(array, key) {
+  return array.sort(function(a, b) {
 
+    var x = a[key];
+    var y = b[key];
+
+    if (typeof x == "string") {
+      x = (""+x).toLowerCase();
+    }
+    if (typeof y == "string") {
+      y = (""+y).toLowerCase();
+    }
+
+    return ((x < y) ? -1 : ((x > y) ? 1 : 0));
+
+  });
+}
 
 /* code for accounts */
 function accountObj(logincode,loginrank) {

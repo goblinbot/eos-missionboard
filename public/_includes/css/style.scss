@@ -9,6 +9,7 @@ $beaconblauw: #39DBCC;
 $gubatgeel  : #FFCC00;
 $orbitgreen : #4fe38b;
 $tomatored : tomato;
+$orbitred : #ed3737;
 
 $bludim      : #0f5879;
 $blubright   : #05aded;
@@ -97,6 +98,12 @@ img {
   display: none;
 }
 
+.sm-hidden, .hidden-sm {
+  @media(min-width: 992px) {
+    display: none;
+  }
+}
+
 .text-right {
   text-align: right;
 }
@@ -122,6 +129,8 @@ img {
 
     border-bottom: 2px solid rgba($bludim, 0.5);
     background: $donker-alt;
+    box-shadow: $googleShade;
+    border-top: 1px solid lighten($donker-alt,5%);
 
     @media(min-width: 992px) {
       overflow: hidden;
@@ -265,6 +274,27 @@ img {
 
         &.missionlist {
 
+          > .topheader {
+            width: auto;
+            display: flex;
+            flex-direction: row;
+
+            font-weight: bold;
+            margin: 0.5rem 2.5rem -0.5rem 2.5rem;
+
+            @media(max-width: 992px) {
+              margin: 1.25rem;
+              display: none;
+            }
+
+            > .rows {
+              padding: 0.25rem 1.5rem;
+              width: auto;
+              flex: 1;
+            }
+
+          }
+
           > .entry {
 
             width: auto;
@@ -274,29 +304,49 @@ img {
               flex-direction: column;
             }
 
+            border-top: 1px solid lighten(#DEDEDE,10%);
             background-color: #DEDEDE;
+            border-bottom: 5px solid darken(#DEDEDE, 20%);
             color: $donker;
+            box-shadow: $googleShade;
 
             /* colour variations */
             &.green {
+              border-top: 1px solid lighten($orbitgreen,10%);
               background-color: $orbitgreen;
+              border-bottom: 5px solid darken($orbitgreen,20%);
             }
             &.blue {
+              border-top: 1px solid lighten($blubright,10%);
               background-color: $blubright;
+              border-bottom: 5px solid darken($blubright,20%);
             }
             &.yellow {
+              border-top: 1px solid lighten($gubatgeel, 10%);
               background-color: $gubatgeel;
+              border-bottom: 5px solid darken($gubatgeel,20%);
             }
             &.orange {
+              border-top: 1px solid lighten(orange, 10%);
               background-color: orange;
+              border-bottom: 5px solid darken(orange,20%);
             }
             &.red {
-              background-color: $tomatored;
+              border-top: 1px solid lighten($orbitred, 10%);
+              background-color: $orbitred;
+              border-bottom: 5px solid darken($orbitred,20%);
             }
 
             margin: 1.25rem;
             @media(min-width: 992px) {
               margin: 2.5rem;
+            }
+
+            /*****/
+            > .freerow {
+
+              width: 4rem;
+
             }
 
             /* children */
@@ -306,14 +356,6 @@ img {
               width: auto;
               flex: 1;
 
-              @media(min-width: 992px) {
-                &:last-child {
-                  background-image: url('/img/cornerstone.png');
-                  background-position: right bottom;
-                  background-repeat: no-repeat;
-                  background-size: 16px 16px;
-                }
-              }
             }
 
           }

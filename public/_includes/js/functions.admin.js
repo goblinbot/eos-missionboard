@@ -33,7 +33,7 @@ function parseMissionsADM(missions) {
         let printresult = "<form >"
         + "<div class=\"entry\">"
 
-          + "<div class=\"rows "+entry.colour+"\"><i class=\"fas fa-cog\"></i></div>"
+          + "<div class=\"freerow "+entry.colour+"\"><i class=\"fas fa-cog\"></i></div>"
 
           + "<div class=\"rows title\">"
             +"<div class=\"col\"><label>Title:</label><input type=\"text\" name=\"updateMission["+entry.id+"][title]\" value=\"" + entry.title + "\"/></div>"
