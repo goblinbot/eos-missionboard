@@ -340,4 +340,22 @@ form {
     }
 
   }
+
+  > .entry {
+
+    width: auto;
+    padding: 1rem;
+    flex-direction: row;
+    display: flex;
+
+    .rows {
+      flex: 1;
+      width: auto;
+      display: flex;
+      flex-direction: column;
+      // height: 100%;
+    }
+
+  }
+
 }

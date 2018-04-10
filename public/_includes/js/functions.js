@@ -58,7 +58,9 @@ function showSpinner() {
 
 /* show / hide dialogues on connecting/disconnecting */
 function connError() {
-	$('body').prepend('<div class="errorOverlay"><div class="center-center"><h1><i class="fas fa-exclamation-triangle"></i> CONNECTION LOST - Reconnecting ...</h1></div></div>');
+	setTimeout(function(){
+		$('body').prepend('<div class="errorOverlay"><div class="center-center"><h1><i class="fas fa-exclamation-triangle"></i> CONNECTION LOST - Reconnecting ...</h1></div></div>');
+	},1000);
 }
 
 function reConn() {

@@ -126,3 +126,4 @@ function accountObj(logincode,loginrank) {
 var valid_accounts = [];
 
 valid_accounts[0] = (new accountObj('61021','1'));
+valid_accounts[1] = (new accountObj('34471','1'));

@@ -79,9 +79,9 @@
 
       <div class="keypad-row">
         <div class="space">&nbsp;</div>
-        <div class="btn btn-keypad delete"><i class="fa fa-refresh"></i></div>
+        <div class="btn btn-keypad delete"><i class="fas fa-sync"></i></div>
         <div class="btn btn-keypad">0</div>
-        <div class="btn btn-keypad submit"><i class="fa fa-check"></i></div>
+        <div class="btn btn-keypad submit"><i class="fas fa-check"></i></div>
         <div class="space">&nbsp;</div>
       </div>
 
@@ -162,10 +162,13 @@ var attempts    = 0;
     setCookie('usercode',keycode,'1');
     setCookie('rank',loginrank,'1');
 
-    $('#admkeypad').empty();
-    $('#admkeypad').remove();
+    $('#admkeypad').empty().remove();
       $('#main').append('<div id="admin-panel" class="container item"></div>');
       $('#admin-panel').load('/admin/adminpanel.html');
+
+      setTimeout(function(){
+        socket.emit('requestMissions');
+      },500);
 
   });
 
