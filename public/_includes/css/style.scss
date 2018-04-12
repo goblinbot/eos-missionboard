@@ -128,7 +128,8 @@ img {
     padding: $defaultspace;
 
     border-bottom: 2px solid rgba($bludim, 0.5);
-    background: $donker-alt;
+    background-color: $donker-alt;
+    background-image: url("/img/pattern.png");
     box-shadow: $googleShade;
     border-top: 1px solid lighten($donker-alt,5%);
 

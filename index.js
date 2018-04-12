@@ -16,7 +16,7 @@ const fs = require('fs');
 const urlencodedParser = bodyParser.urlencoded({ extended: false});
 
 /* INITIALISE THE APPLICATION */
-const port = process.env.PORT || 5002;
+const port = process.env.PORT || 5005;
 
 var missions = [];
 var missionCounter = 0;
@@ -98,12 +98,9 @@ io.on('connection', function (socket) {
         break;
     }
 
-
     data['date'] = fulldate;
     data['id'] = missionCounter;
-    data['status'] = 'Preparation';
-
-    missions = sortByCode(missions, missions['colourcode']);
+    data['status'] = 'prep';
 
     // missions[fulldate][missionCounter] = data;
     /*missions[missionCounter] = data;*/
@@ -145,25 +142,6 @@ io.on('connection', function (socket) {
   });
 
 });
-
-/* SORT ARRAY BY NUMBER */
-function sortByCode(array, key) {
-  return array.sort(function(a, b) {
-
-    var x = a[key];
-    var y = b[key];
-
-    if (typeof x == "string") {
-      x = (""+x).toLowerCase();
-    }
-    if (typeof y == "string") {
-      y = (""+y).toLowerCase();
-    }
-
-    return ((x < y) ? -1 : ((x > y) ? 1 : 0));
-
-  });
-}
 
 /* code for accounts */
 function accountObj(logincode,loginrank) {

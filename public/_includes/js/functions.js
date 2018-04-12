@@ -80,11 +80,12 @@ function parseMissions(missions) {
 
 	if(missions.length > 0) {
 
-		board.empty();
+		board.empty().hide();
 
     console.log('<> Operations detected. Initialising phase one.');
 
 		board.append( "<div class=\"topheader\">"
+		 + "<div class=\"rows\">Status:</div>"
 		 + "<div class=\"rows\">Title:</div>"
 		 + "<div class=\"rows\">Goal:</div>"
 		 + "<div class=\"rows\">XO:</div>"
@@ -102,6 +103,7 @@ function parseMissions(missions) {
 				if(entry.date == currentdate || entry.date == prevdate) {
 
 					let printresult = "<div class=\"entry "+entry.colour+"\">"
+					 + "<div class=\"rows\"><span class=\"sm-hidden\">Status:<br/></span>[ X ]</div>"
 					 + "<div class=\"rows\"><span class=\"sm-hidden\">Title:<br/></span>" + entry.title + "</div>"
 					 + "<div class=\"rows\"><span class=\"sm-hidden\">Goal:<br/></span>" + entry.goal + "</div>"
 					 + "<div class=\"rows\"><span class=\"sm-hidden\">XO:<br/></span>" + entry.XO + "</div>"
@@ -118,6 +120,10 @@ function parseMissions(missions) {
 
 
 		});
+
+		setTimeout(function(){
+			board.fadeIn();
+		},750)
 
 		/* FOR EACH MISSION... */
 
