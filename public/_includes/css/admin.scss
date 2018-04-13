@@ -1,4 +1,3 @@
-
 // kleuren hier
 $donker : #111;
 $donker-alt : #222;
@@ -8,6 +7,8 @@ $donkerwit : #DEDEDE;
 $beaconblauw: #39DBCC;
 $gubatgeel  : #FFCC00;
 $orbitgreen : #4fe38b;
+$tomatored : tomato;
+$orbitred : #ed3737;
 
 $bludim      : #0f5879;
 $blubright   : #05aded;
@@ -16,6 +17,23 @@ $googleShade : 0 1px 8px 0 rgba(0,0,0,.2),0 3px 4px 0 rgba(0,0,0,.14),0 3px 3px 
 
 $fontregular : 'Quantico', "Helvetica Neue", Arial, sans-serif;
 $fonttitle : 'Quantico Bold', $fontregular;
+
+.green {
+  background-color: $orbitgreen;
+}
+.blue {
+  background-color: $blubright;
+}
+.yellow {
+  background-color: $gubatgeel;
+}
+.orange {
+  background-color: orange;
+}
+.red {
+  background-color: $orbitred;
+}
+
 
 
 .keypad-row {
@@ -295,66 +313,98 @@ form {
   > .row {
     display: flex;
     flex-direction: column;
+  }
 
-    > label {
-      margin: 0.8rem 0;
-      font-size: 1.6rem;
-    }
+  label {
+    margin: 0.8rem 0;
+    font-size: 1.6rem;
+  }
 
-    > input, > select {
+  input, select {
 
-      background: lighten($donker-alt, 10%);
-      border: 0;
-      border-bottom: 3px solid $bludim;
-      box-shadow: $googleShade;
-      color: $donkerwit;
-      font-size: 1.4rem;
-      margin: 0.8rem 0;
-      padding: 0.8rem;
-      transition: 0.3s;
+    background: lighten($donker-alt, 10%);
+    border: 0;
+    border-bottom: 3px solid $bludim;
+    box-shadow: $googleShade;
+    color: $donkerwit;
+    font-size: 1.4rem;
+    margin: 0.8rem 0;
+    padding: 0.8rem;
+    transition: 0.3s;
 
-      &:hover, &:active, &:focus {
-        background: lighten($donker-alt, 15%);
-        border-color: $blubright;
-      }
-
-    }
-
-    > .button {
-      margin: 1.6rem 0 0 0;
-      font-family: $fonttitle;
-      font-size: 1.6rem;
-
-      background: $blubright;
-      border: 0;
-      color: $donker;
-      cursor: pointer;
-
-      &:hover {
-        color: $donkerwit;
-        background: $bludim;
-      }
-      &:active, &:focus {
-        color: $donkerwit;
-        background: darken($bludim,10%);
-      }
+    &:hover, &:active, &:focus {
+      background: lighten($donker-alt, 15%);
+      border-color: $blubright;
     }
 
   }
 
+  .button {
+    margin: 1.6rem 0 0 0;
+    font-family: $fonttitle;
+    font-size: 1.6rem;
+
+    background: $blubright;
+    border: 0;
+    color: $donker;
+    cursor: pointer;
+
+    &:hover {
+      color: $donkerwit;
+      background: $bludim;
+    }
+    &:active, &:focus {
+      color: $donkerwit;
+      background: darken($bludim,10%);
+    }
+  }
+
+
   > .entry {
 
     width: auto;
-    padding: 1rem;
     flex-direction: row;
     display: flex;
+    box-shadow: $googleShade;
+    background: darken($bludim,15%);
+
+    @media(max-width: 992px) {
+      flex-direction: column;
+    }
+
+    > .freerow {
+      padding: 1.5rem;
+
+      background-color: #DEDEDE;
+
+    }
 
     .rows {
       flex: 1;
       width: auto;
       display: flex;
       flex-direction: column;
-      // height: 100%;
+      padding: 1.5rem;
+
+      > .col {
+        display: flex;
+
+        flex-direction: column;
+        @media(min-width: 992px) {
+          flex-direction: row;
+          input {
+            flex: 2;
+            margin: 0.2rem 0 0 0;
+          }
+          label {
+            flex: 1;
+            margin: 0.2rem 0 0 0;
+          }
+        }
+
+
+      }
+
     }
 
   }

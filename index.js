@@ -70,12 +70,9 @@ io.on('connection', function (socket) {
 
     //switch
 
-    // 10 GRIJS
-    // 20 BLAUW
-    // 30 GROEN
-    // 40 GEEL
-    // 50 ORANJE
-    // 60 ROOD
+    // 10 GRIJS | 20 BLAUW
+    // 30 GROEN | 40 GEEL
+    // 50 ORANJ | 60 ROOD
     switch(data['colourcode']) {
       case '10':
       default:
