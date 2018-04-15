@@ -18,21 +18,6 @@ $googleShade : 0 1px 8px 0 rgba(0,0,0,.2),0 3px 4px 0 rgba(0,0,0,.14),0 3px 3px 
 $fontregular : 'Quantico', "Helvetica Neue", Arial, sans-serif;
 $fonttitle : 'Quantico Bold', $fontregular;
 
-.green {
-  background-color: $orbitgreen;
-}
-.blue {
-  background-color: $blubright;
-}
-.yellow {
-  background-color: $gubatgeel;
-}
-.orange {
-  background-color: orange;
-}
-.red {
-  background-color: $orbitred;
-}
 
 
 
@@ -367,6 +352,7 @@ form {
     display: flex;
     box-shadow: $googleShade;
     background: darken($bludim,15%);
+    margin-bottom: 0.5rem;
 
     @media(max-width: 992px) {
       flex-direction: column;
@@ -376,6 +362,22 @@ form {
       padding: 1.5rem;
 
       background-color: #DEDEDE;
+
+      &.green {
+        background-color: $orbitgreen;
+      }
+      &.blue {
+        background-color: $blubright;
+      }
+      &.yellow {
+        background-color: $gubatgeel;
+      }
+      &.orange {
+        background-color: orange;
+      }
+      &.red {
+        background-color: $orbitred;
+      }
 
     }
 

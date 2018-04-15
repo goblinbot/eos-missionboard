@@ -59,7 +59,7 @@ io.on('connection', function (socket) {
   },1000);
 
 
-  app.post('/index', urlencodedParser, function(req, res){
+  app.post('/admin/new', urlencodedParser, function(req, res){
 
     /* data is already JSON! */
     let data = req.body;
@@ -108,6 +108,34 @@ io.on('connection', function (socket) {
     console.log(missions);
 
     io.emit('updateMissionBoard', missions);
+
+    res.sendFile('index.html', {"root": __dirname+'/public/admin/'});
+
+  });
+
+  app.post('/admin/edit', urlencodedParser, function(req, res){
+    let postdata = req.body;
+    let data = postdata['updateMission'];
+    console.log(data);
+
+    if(data['id']) {
+      let i = data['id'];
+
+      if(missions[i]) {
+        missions[i]['title'] = data['title'];
+        missions[i]['goal'] = data['goal'];
+        missions[i]['XO'] = data['XO'];
+        missions[i]['startTime'] = data['startTime'];
+        missions[i]['endTime'] = data['endTime'];
+        missions[i]['status'] = data['status'];
+
+        if(data['status'] == 'done') {
+          missions[i].length = 0;
+        }
+      }
+
+      io.emit('updateMissionBoard', missions);
+    }
 
     res.sendFile('index.html', {"root": __dirname+'/public/admin/'});
 

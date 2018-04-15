@@ -85,13 +85,13 @@ function parseMissions(missions) {
     console.log('<> Operations detected. Initialising phase one.');
 
 		board.append( "<div class=\"topheader\">"
-		 + "<div class=\"rows\">Status:</div>"
-		 + "<div class=\"rows\">Title:</div>"
-		 + "<div class=\"rows\">Goal:</div>"
+		 + "<div class=\"rows\">STATUS:</div>"
+		 + "<div class=\"rows\">TITLE:</div>"
+		 + "<div class=\"rows\">GOAL:</div>"
 		 + "<div class=\"rows\">XO:</div>"
-		 + "<div class=\"rows\">Shuttle:</div>"
-		 + "<div class=\"rows\">Departs:</div>"
-		 + "<div class=\"rows\">Est. return:</div>" );
+		 + "<div class=\"rows\">SHUTTLE:</div>"
+		 + "<div class=\"rows\">DEPARTS:</div>"
+		 + "<div class=\"rows\">EST. RETURN:</div>" );
 
 		$(missions).each(function(counter) {
 
@@ -103,7 +103,7 @@ function parseMissions(missions) {
 				if(entry.date == currentdate || entry.date == prevdate) {
 
 					let printresult = "<div class=\"entry "+entry.colour+"\">"
-					 + "<div class=\"rows\"><span class=\"sm-hidden\">Status:<br/></span>[ X ]</div>"
+					 + "<div class=\"rows\"><span class=\"sm-hidden\">Status:<br/></span>" + entry.status + "</div>"
 					 + "<div class=\"rows\"><span class=\"sm-hidden\">Title:<br/></span>" + entry.title + "</div>"
 					 + "<div class=\"rows\"><span class=\"sm-hidden\">Goal:<br/></span>" + entry.goal + "</div>"
 					 + "<div class=\"rows\"><span class=\"sm-hidden\">XO:<br/></span>" + entry.XO + "</div>"
