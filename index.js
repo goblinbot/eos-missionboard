@@ -116,7 +116,6 @@ io.on('connection', function (socket) {
   app.post('/admin/edit', urlencodedParser, function(req, res){
     let postdata = req.body;
     let data = postdata['updateMission'];
-    console.log(data);
 
     if(data['id']) {
       let i = data['id'];
@@ -134,6 +133,7 @@ io.on('connection', function (socket) {
         }
       }
 
+      console.log(missions);
       io.emit('updateMissionBoard', missions);
     }
 

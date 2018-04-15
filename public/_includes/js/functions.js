@@ -102,7 +102,7 @@ function parseMissions(missions) {
 				/* check the date */
 				if(entry.date == currentdate || entry.date == prevdate) {
 
-					let printresult = "<div class=\"entry "+entry.colour+"\">"
+					let printresult = "<div id=\"entry_"+entry.id+"\" class=\"entry "+entry.colour+"\">"
 					 + "<div class=\"rows\"><span class=\"sm-hidden\">Status:<br/></span>" + entry.status + "</div>"
 					 + "<div class=\"rows\"><span class=\"sm-hidden\">Title:<br/></span>" + entry.title + "</div>"
 					 + "<div class=\"rows\"><span class=\"sm-hidden\">Goal:<br/></span>" + entry.goal + "</div>"
