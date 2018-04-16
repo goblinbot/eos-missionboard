@@ -1,13 +1,12 @@
 <div class="menu item">
 
-
   <a class="menu-block" onclick="navigateADM('adminpanel');"><i class="fa fa-list"></i><br/>BACK</a>
 
 </div>
 
 <div class="spacer"></div>
 
-<div class="content item">
+<div class="content">
 
   <form method="POST" action="/admin/new" id="newMission" class="form">
 
@@ -45,9 +44,11 @@
 
     <div class="row">
       <label>Shuttle required</label>
-      <select name="shuttlebool">
-        <option value="no">No</option>
-        <option value="yes">Yes</option>
+      <select name="shuttleswitch">
+        <option value="none">None</option>
+        <option value="#1">#1</option>
+        <option value="#2">#2</option>
+        <option value="#3">#3</option>
       </select>
     </div>
 

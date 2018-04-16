@@ -68,32 +68,7 @@ io.on('connection', function (socket) {
     let d = new Date();
     let fulldate = (d.getDay() + "-" + d.getMonth() + "-" + d.getFullYear());
 
-    //switch
-
-    // 10 GRIJS | 20 BLAUW
-    // 30 GROEN | 40 GEEL
-    // 50 ORANJ | 60 ROOD
-    switch(data['colourcode']) {
-      case '10':
-      default:
-        data['colour'] = 'gray';
-        break;
-      case '20':
-        data['colour'] = 'blue';
-        break;
-      case '30':
-        data['colour'] = 'green';
-        break;
-      case '40':
-        data['colour'] = 'yellow';
-        break;
-      case '50':
-        data['colour'] = 'orange';
-        break;
-      case '60':
-        data['colour'] = 'red';
-        break;
-    }
+    data['colour'] = parseColour(data['colourcode']);
 
     data['date'] = fulldate;
     data['id'] = missionCounter;
@@ -105,7 +80,7 @@ io.on('connection', function (socket) {
     missionCounter++;
 
 
-    console.log(missions);
+    console.log('Missions updated.');
 
     io.emit('updateMissionBoard', missions);
 
@@ -121,19 +96,20 @@ io.on('connection', function (socket) {
       let i = data['id'];
 
       if(missions[i]) {
-        missions[i]['title'] = data['title'];
-        missions[i]['goal'] = data['goal'];
-        missions[i]['XO'] = data['XO'];
-        missions[i]['startTime'] = data['startTime'];
-        missions[i]['endTime'] = data['endTime'];
-        missions[i]['status'] = data['status'];
+
+        /* override the old mission fields. Yes, this is not the most secure method. I'm aware. */
+        for (var x in data) {
+          missions[i][x] = data[x];
+        }
+
+        missions[i]['colour'] = parseColour(data['colourcode']);
 
         if(data['status'] == 'done') {
           missions[i].length = 0;
         }
       }
 
-      console.log(missions);
+      console.log('Missions updated.');
       io.emit('updateMissionBoard', missions);
     }
 
@@ -177,3 +153,33 @@ var valid_accounts = [];
 
 valid_accounts[0] = (new accountObj('61021','1'));
 valid_accounts[1] = (new accountObj('34471','1'));
+
+
+/* parse colourcodes into colours */
+function parseColour(input) {
+
+  // 10 GRAY | 20 BLUE | 30 GREEN | 40 YELLOW | 50 ORANGE | 60 RED
+  switch(input) {
+    case '10':
+    default:
+      var output = 'gray';
+      break;
+    case '20':
+    var output = 'blue';
+      break;
+    case '30':
+      var output = 'green';
+      break;
+    case '40':
+      var output = 'yellow';
+      break;
+    case '50':
+      var output = 'orange';
+      break;
+    case '60':
+      var output = 'red';
+      break;
+  }
+
+  return output;
+}

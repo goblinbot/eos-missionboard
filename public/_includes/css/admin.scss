@@ -394,9 +394,12 @@ form {
         flex-direction: column;
         @media(min-width: 992px) {
           flex-direction: row;
-          input {
+          input, select {
             flex: 2;
             margin: 0.2rem 0 0 0;
+            &.button {
+              padding: 4px;
+            }
           }
           label {
             flex: 1;

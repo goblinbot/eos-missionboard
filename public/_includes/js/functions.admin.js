@@ -12,8 +12,6 @@ function navigateADM(target) {
 
 function parseMissionsADM(missions) {
 
-  console.log(missions);
-
 	let d = new Date();
 	let currentdate = (d.getDay() + "-" + d.getMonth() + "-" + d.getFullYear());
 	let prevdate = ((d.getDay()-1) + "-" + d.getMonth() + "-" + d.getFullYear());
@@ -22,6 +20,8 @@ function parseMissionsADM(missions) {
 	if(missions.length > 0) {
 
 		board.empty();
+
+    missions.sort(sortArrDESC("colour"));
 
     $(missions).each(function(counter) {
 
@@ -45,9 +45,16 @@ function parseMissionsADM(missions) {
           + "<div class=\"rows title\">"
             +"<div class=\"col\"><label>Departs:</label><input type=\"time\" name=\"updateMission[startTime]\" value=\"" + entry.startTime + "\"/></div>"
             +"<div class=\"col\"><label>Est. return:</label><input type=\"time\" name=\"updateMission[endTime]\" value=\"" + entry.endTime + "\"/></div>"
+            +"<div class=\"col\"><label>Shuttle:</label><select name=\"updateMission[shuttleswitch]\">"
+              + "<option "+ (entry.shuttleswitch == "none" ? "selected" : "") +" value=\"none\">None</option>"
+              + "<option "+ (entry.shuttleswitch == "#1" ? "selected" : "") +" value=\"#1\">#1</option>"
+              + "<option "+ (entry.shuttleswitch == "#2" ? "selected" : "") +" value=\"#2\">#2</option>"
+              + "<option "+ (entry.shuttleswitch == "#3" ? "selected" : "") +" value=\"#3\">#3</option>"
+            +"</select></div>"
           +"</div>"
 
           + "<div class=\"rows\">"
+
             +"<div class=\"col\"><label>Status:</label><select name=\"updateMission[status]\">"
               + "<option "+ (entry.status == "prep" ? "selected" : "") +" value=\"prep\">Prep (new)</option>"
               + "<option "+ (entry.status == "delayed" ? "selected" : "") +" value=\"delayed\">Delayed</option>"
@@ -55,6 +62,15 @@ function parseMissionsADM(missions) {
               + "<option "+ (entry.status == "ongoing" ? "selected" : "") +" value=\"ongoing\">Ongoing</option>"
               + "<option "+ (entry.status == "returning" ? "selected" : "") +" value=\"returning\">Returning</option>"
               + "<option "+ (entry.status == "done" ? "selected" : "") +" value=\"done\">Done (delete from board)</option>"
+            +"</select></div>"
+
+            +"<div class=\"col\"><label>Colour:</label><select name=\"updateMission[colourcode]\">"
+              + "<option "+ (entry.colourcode == "10" ? "selected" : "") +" value=\"10\">Gray (default)</option>"
+              + "<option "+ (entry.colourcode == "20" ? "selected" : "") +" value=\"20\">Blue</option>"
+              + "<option "+ (entry.colourcode == "30" ? "selected" : "") +" value=\"30\">Green</option>"
+              + "<option "+ (entry.colourcode == "40" ? "selected" : "") +" value=\"40\">Yellow</option>"
+              + "<option "+ (entry.colourcode == "50" ? "selected" : "") +" value=\"50\">Orange</option>"
+              + "<option "+ (entry.colourcode == "60" ? "selected" : "") +" value=\"60\">Red</option>"
             +"</select></div>"
 
             +"<div class=\"col\"><input class=\"button blue\" type=\"submit\" value=\"Edit\" /></div>"

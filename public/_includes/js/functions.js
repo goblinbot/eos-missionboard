@@ -85,13 +85,15 @@ function parseMissions(missions) {
     console.log('<> Operations detected. Initialising phase one.');
 
 		board.append( "<div class=\"topheader\">"
-		 + "<div class=\"rows\">STATUS:</div>"
-		 + "<div class=\"rows\">TITLE:</div>"
-		 + "<div class=\"rows\">GOAL:</div>"
-		 + "<div class=\"rows\">XO:</div>"
-		 + "<div class=\"rows\">SHUTTLE:</div>"
-		 + "<div class=\"rows\">DEPARTS:</div>"
-		 + "<div class=\"rows\">EST. RETURN:</div>" );
+		+ "<div class=\"rows\">STATUS:</div>"
+		+ "<div class=\"rows\">TITLE:</div>"
+		+ "<div class=\"rows\">GOAL:</div>"
+		+ "<div class=\"rows\">XO:</div>"
+		+ "<div class=\"rows\">SHUTTLE:</div>"
+		+ "<div class=\"rows\">DEPARTS:</div>"
+		+ "<div class=\"rows\">EST. RETURN:</div>" );
+
+		missions.sort(sortArrDESC("colour"));
 
 		$(missions).each(function(counter) {
 
@@ -107,7 +109,7 @@ function parseMissions(missions) {
 					 + "<div class=\"rows\"><span class=\"sm-hidden\">Title:<br/></span>" + entry.title + "</div>"
 					 + "<div class=\"rows\"><span class=\"sm-hidden\">Goal:<br/></span>" + entry.goal + "</div>"
 					 + "<div class=\"rows\"><span class=\"sm-hidden\">XO:<br/></span>" + entry.XO + "</div>"
-					 + "<div class=\"rows\"><span class=\"sm-hidden\">Shuttle:<br/></span>" + entry.shuttlebool + "</div>"
+					 + "<div class=\"rows\"><span class=\"sm-hidden\">Shuttle:<br/></span>" + entry.shuttleswitch + "</div>"
 					 + "<div class=\"rows\"><span class=\"sm-hidden\">Departs:<br/></span>" + entry.startTime + "</div>"
 					 + "<div class=\"rows\"><span class=\"sm-hidden\">Est. return:<br/></span>" + entry.endTime + "</div>";
 
@@ -138,6 +140,29 @@ function noMissionMessage() {
 
 	$('#missions').html('<h2 class="center-center"><i class="fas fa-check"></i> No active or planned missions. Please stand by.</h2>');
 
+}
+
+/* getSortOrder: Compares array subkeys and then sorts DESCENDING. */
+function sortArrDESC(prop) {
+  return function(a, b) {
+    if (a[prop] < b[prop]) {
+      return 1;
+    } else if (a[prop] > b[prop]) {
+      return -1;
+    }
+    return 0;
+  }
+}
+/* and ASCENDING */
+function sortArrASC(prop) {
+  return function(a, b) {
+    if (a[prop] > b[prop]) {
+      return 1;
+    } else if (a[prop] < b[prop]) {
+      return -1;
+    }
+    return 0;
+  }
 }
 
 
@@ -194,4 +219,10 @@ $(document).ready(function() {
 	checkGridSupport()
 
   setInterval('updateClock()', 1000);
+
+	/* print a HI FELLOW ROBOTS message for the curious monkeys. */
+	console.log('%cHELLO CURIOUS COLONIST!', 'color:darkblue;font-size:20px;font-family:arial;font-style:italic;');
+	console.log('If you like breaking stuff, or just looking under the hood in general, feel free to contact Thijs/Maati at Eos IT.');
+	console.log('%c____________________________', 'color:darkblue;');
+	console.log('Please note that OC hacking is against the spirit of the game, and will lead to a very frustrated crew.');
 });
