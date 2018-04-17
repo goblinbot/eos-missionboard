@@ -6,9 +6,9 @@
   "directories": {
     "doc": "docs"
   },
-  "main": "index.js",
+  "main": "stratios.js",
   "scripts": {
-    "start": "node index.js",
+    "start": "node stratios.js",
     "test": "MAATI ONLINE"
   },
   "repository": {
