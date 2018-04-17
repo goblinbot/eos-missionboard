@@ -84,6 +84,8 @@ function parseMissions(missions) {
 
 	if(missions.length > 0) {
 
+		openTab('missions');
+
 		board.empty().hide();
 
 		if(countdown.length > 0) {

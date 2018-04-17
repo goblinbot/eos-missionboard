@@ -71,7 +71,7 @@ io.on('connection', function (socket) {
     data['colour'] = parseColour(data['colourcode']);
 
     /* easter egg when setting one of the dates to 08:08 */
-    if(data['startTime'] == '08:08' || data['endTime'] == '08:08') {
+    if(data['startTime'] == '08:08' || data['endTime'] == '08:08' || data['startTime'] == '20:08' || data['endTime'] == '20:08') {
       data['colour'] = 'yellow gubat';
     }
 
