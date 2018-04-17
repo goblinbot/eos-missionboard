@@ -90,6 +90,12 @@ h4, h5 {
   font-family: $fonttime;
 }
 
+.truncate {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
 img {
   height: auto;
   max-width: 100%;
@@ -293,6 +299,8 @@ img {
             width: auto;
             display: flex;
             flex-direction: row;
+            justify-content: center;
+            align-items:center;
 
             font-weight: bold;
             margin: 0.5rem 2.5rem -0.5rem 2.5rem;
@@ -306,6 +314,8 @@ img {
               padding: 0.25rem 1.5rem;
               width: auto;
               flex: 1;
+              justify-content: center;
+              align-items:center;
             }
 
           }
@@ -316,6 +326,9 @@ img {
             width: auto;
             display: flex;
             flex-direction: row;
+            justify-content: center;
+            align-items:center;
+
             @media(max-width: 992px) {
               flex-direction: column;
             }
@@ -373,6 +386,8 @@ img {
               padding: 1.5rem;
               width: auto;
               flex: 1;
+              justify-content: center;
+              align-items:center;
 
             }
 
@@ -422,6 +437,48 @@ img {
 
       p,h1,h2,h3,h4,h5 {
         margin: 0.8rem 0.2rem;
+      }
+
+
+      .countdown-box {
+
+        margin-top: 2.5rem;
+
+        > .block {
+          background: rgba($soedark, 0.1);
+          // margin: 2px -8px 2px -8px;
+          box-shadow: $googleShade;
+          text-align: center;
+          padding: 2px;
+
+          border-bottom: 3px solid $soedark;
+
+          /* colour variations */
+          &.green {
+            border-bottom: 3px solid $orbitgreen;
+          }
+          &.blue {
+            border-bottom: 3px solid $blubright;
+          }
+          &.yellow {
+            border-bottom: 3px solid $gubatgeel;
+          }
+          &.orange {
+            border-bottom: 3px solid orange;
+          }
+          &.red {
+            border-bottom: 3px solid $orbitred;
+          }
+
+          > p {
+            margin-bottom: 0.4rem;
+            margin-top: 0.4rem;
+          }
+
+          > .time {
+            font-size: 5rem;
+          }
+        }
       }
 
     }

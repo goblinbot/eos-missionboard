@@ -3,6 +3,8 @@ var clockCache = "";
 var ddCache = "";
 var dowCache = "";
 
+var countDownInterval = null; /* for CLEARING the countdowns later. */
+
 
 function checkGridSupport() {
 	var result;
@@ -78,9 +80,15 @@ function parseMissions(missions) {
 	let prevdate = ((d.getDay()-1) + "-" + d.getMonth() + "-" + d.getFullYear());
 	let board = $('#missions');
 
+	let countdown = $('#countdown');
+
 	if(missions.length > 0) {
 
 		board.empty().hide();
+
+		if(countdown.length > 0) {
+			countdown.empty().hide();
+		}
 
     console.log('<> Operations detected. Initialising phase one.');
 
@@ -93,7 +101,9 @@ function parseMissions(missions) {
 		+ "<div class=\"rows\">DEPARTS:</div>"
 		+ "<div class=\"rows\">EST. RETURN:</div>" );
 
-		missions.sort(sortArrDESC("colour"));
+		missions.sort(sortArrDESC("colourcode"));
+
+		let printed = 0;
 
 		$(missions).each(function(counter) {
 
@@ -118,12 +128,26 @@ function parseMissions(missions) {
 					board.append(printresult);
 				}
 
+				if (printed < 3) {
+
+					let printresult = '<div class=\"block '+entry.colour+'\">' /* id=\"cDown_'+ printed +'\" */
+						+ '<p class=\"truncate\">'+ entry.title +'</p>'
+						+ '<p class=\"time\">'+ entry.startTime +'</p>'
+					+ '</div>';
+
+					countdown.append(printresult);
+
+				}
+
+				printed++;
+
 			}
 
 
 		});
 
 		setTimeout(function(){
+			countdown.fadeIn();
 			board.fadeIn();
 		},750)
 
@@ -138,7 +162,8 @@ function parseMissions(missions) {
 /* Print a NO ACTIVE MISSIONS message. This is a function for re-using. */
 function noMissionMessage() {
 
-	$('#missions').html('<h2 class="center-center"><i class="fas fa-check"></i> No active or planned missions. Please stand by.</h2>');
+	$('#missions').empty().html('<h2 class="center-center"><i class="fas fa-check"></i> No active or planned missions. Please stand by.</h2>');
+	$('#countdown').empty();
 
 }
 

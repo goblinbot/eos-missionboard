@@ -21,7 +21,7 @@ function parseMissionsADM(missions) {
 
 		board.empty();
 
-    missions.sort(sortArrDESC("colour"));
+    missions.sort(sortArrDESC("colourcode"));
 
     $(missions).each(function(counter) {
 
