@@ -9,6 +9,7 @@ $gubatgeel  : #FFCC00;
 $orbitgreen : #4fe38b;
 $tomatored : tomato;
 $orbitred : #ed3737;
+$joshrange : #fb6e3b;
 
 $bludim      : #0f5879;
 $blubright   : #05aded;
@@ -373,7 +374,7 @@ form {
         background-color: $gubatgeel;
       }
       &.orange {
-        background-color: orange;
+        background-color: $joshrange;
       }
       &.red {
         background-color: $orbitred;
