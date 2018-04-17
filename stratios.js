@@ -129,7 +129,7 @@ io.on('connection', function (socket) {
   socket.on('auth', function(keycode){
     var checklogincode = 0;
     var loginrank = 0;
-    console.log('authentication code received: '+keycode);
+    console.log('authentication code received: '+ keycode );
 
     for (let i in valid_accounts) {
 
@@ -169,7 +169,7 @@ function parseColour(input) {
       var output = 'gray';
       break;
     case '20':
-    var output = 'blue';
+      var output = 'blue';
       break;
     case '30':
       var output = 'green';

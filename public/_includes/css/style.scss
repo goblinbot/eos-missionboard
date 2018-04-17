@@ -10,6 +10,7 @@ $gubatgeel  : #FFCC00;
 $orbitgreen : #4fe38b;
 $tomatored : tomato;
 $orbitred : #ed3737;
+$joshrange : #fb6e3b;
 
 $soered : #4d0105;
 $soelite : #a0a2a1;
@@ -380,9 +381,9 @@ img {
               }
             }
             &.orange {
-              border-top: 1px solid lighten(orange, 10%);
-              background-color: orange;
-              border-bottom: 5px solid darken(orange,20%);
+              border-top: 1px solid lighten($joshrange, 10%);
+              background-color: $joshrange;
+              border-bottom: 5px solid darken($joshrange,20%);
             }
             &.red {
               border-top: 1px solid lighten($orbitred, 10%);
@@ -486,7 +487,7 @@ img {
             border-bottom: 3px solid $gubatgeel;
           }
           &.orange {
-            border-bottom: 3px solid orange;
+            border-bottom: 3px solid $joshrange;
           }
           &.red {
             border-bottom: 3px solid $orbitred;
