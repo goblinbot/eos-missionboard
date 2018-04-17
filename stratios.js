@@ -70,17 +70,21 @@ io.on('connection', function (socket) {
 
     data['colour'] = parseColour(data['colourcode']);
 
+    /* easter egg when setting one of the dates to 08:08 */
+    if(data['startTime'] == '08:08' || data['endTime'] == '08:08') {
+      data['colour'] = 'yellow gubat';
+    }
+
     data['date'] = fulldate;
     data['id'] = missionCounter;
     data['status'] = 'prep';
 
-    // missions[fulldate][missionCounter] = data;
-    /*missions[missionCounter] = data;*/
+
     missions.push(data);
     missionCounter++;
 
-
-    console.log('Missions updated.');
+    console.log('mission added.');
+    console.log(data);
 
     io.emit('updateMissionBoard', missions);
 
@@ -109,7 +113,7 @@ io.on('connection', function (socket) {
         }
       }
 
-      console.log('Missions updated.');
+      console.log(missions);
       io.emit('updateMissionBoard', missions);
     }
 
