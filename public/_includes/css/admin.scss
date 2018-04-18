@@ -153,17 +153,17 @@ $fonttitle : 'Quantico Bold', $fontregular;
     "blockleft container blankright";
 
   @media(max-width: 769px) {
-    grid-template-rows: auto 1fr 1px 1px;
+    grid-template-rows: 70px 1fr;
     grid-template-columns: 1fr;
 
     grid-template-areas:
       "titlebar"
       // "menu"
-      "container"
+      "container";
       // "status"
       // "smallbar"
-      "blankright"
-      "blockleft";
+      // "blankright"
+      // "blockleft";
   }
 
   // .smallbar {
@@ -217,12 +217,18 @@ $fonttitle : 'Quantico Bold', $fontregular;
     grid-area: blockleft;
     // background: rgba($bludim, 0.25);
     opacity: 0.4;
+    @media(max-width: 768px) {
+      display: none;
+    }
   }
 
   > .blankright {
     grid-area: blankright;
     // background: rgba($bludim, 0.25);
     opacity: 0.4;
+    @media(max-width: 768px) {
+      display: none;
+    }
   }
 
   > .container {
@@ -279,6 +285,11 @@ $fonttitle : 'Quantico Bold', $fontregular;
         height: 6.4rem;
         font-size: 18px;
         padding-top: 4px;
+        flex: 1;
+
+        &.xs-hidden {
+          display: none;
+        }
       }
 
       &:hover {

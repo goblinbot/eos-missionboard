@@ -125,6 +125,12 @@ img {
   }
 }
 
+.xs-hidden {
+  @media(max-width: 768px) {
+    display: none;
+  }
+}
+
 .text-right {
   text-align: right;
 }
